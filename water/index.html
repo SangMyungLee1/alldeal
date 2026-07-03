@@ -1781,7 +1781,7 @@ function gtag_report_conversion(url) {
 
 <script>
 (function(){
-  const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbw9QjtH8Aoa0qg1LTk5RyZ6P6t353pBt-RXlA0zq7mMNVj82OETgxo4mN1mMLAnjp76wQ/exec';
+  const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwLILGtpUUHW-69YouqcTQVWDFGqWIVuhAa6KocQzTIqE-H2q9hW4adGDKeUXlFljmt/exec";
   const form = document.getElementById('leadForm');
   const modal = document.getElementById('completeModal');
   const modalCloseBtn = document.getElementById('modalCloseBtn');
@@ -1791,12 +1791,6 @@ function gtag_report_conversion(url) {
     console.warn('[LeadForm] 필수 요소를 찾지 못했습니다.');
     return;
   }
-
-  let sheetSent = false;
-  let replyFinished = false;
-  let replyLoaded = false;
-  let replyRetried = false;
-  let replyResultText = '전송되지 않을수도 있음';
 
   document.querySelectorAll('#leadForm input[inputmode="numeric"]').forEach(function(el){
     el.addEventListener('input', function(){
@@ -1812,22 +1806,16 @@ function gtag_report_conversion(url) {
     modal.classList.remove('show');
   });
 
-  function buildParams(replyResult){
+  function buildParams(){
     const data = new FormData(form);
     data.set('page', location.href);
-    data.set('replyResult', replyResult || replyResultText || '전송되지 않을수도 있음');
-
     const pageInput = form.querySelector('input[name="page"]');
     if (pageInput) pageInput.value = location.href;
-
     return new URLSearchParams(data);
   }
 
-  function sendSheetWithRetry(replyResult){
-    if (sheetSent) return;
-    sheetSent = true;
-
-    const params = buildParams(replyResult);
+  function sendSheetWithRetry(){
+    const params = buildParams();
 
     function fallbackFetch(isRetry){
       console.log(isRetry ? '[LeadForm] Sheet Retry' : '[LeadForm] Sheet Fetch Start');
@@ -1854,7 +1842,7 @@ function gtag_report_conversion(url) {
         const blob = new Blob([params.toString()], { type: 'application/x-www-form-urlencoded;charset=UTF-8' });
         const queued = navigator.sendBeacon(GOOGLE_SHEET_URL, blob);
         if (queued) {
-          console.log('[LeadForm] Sheet Beacon Queued:', params.get('replyResult'));
+          console.log('[LeadForm] Sheet Beacon Queued');
           return;
         }
         console.warn('[LeadForm] Sheet Beacon rejected. Use fetch fallback.');
@@ -1866,26 +1854,20 @@ function gtag_report_conversion(url) {
     fallbackFetch(false);
   }
 
-  function finishReplyResult(result){
-    if (replyFinished) return;
-    replyFinished = true;
-    replyResultText = result;
-    console.log('[LeadForm] ReplyAlba Result:', replyResultText);
-    sendSheetWithRetry(replyResultText);
-  }
-
   function sendReplyAlbaWithRetry(){
+    let loaded = false;
+    let retried = false;
+
     function markLoaded(){
-      replyLoaded = true;
-      console.log(replyRetried ? '[LeadForm] ReplyAlba Retry Loaded' : '[LeadForm] ReplyAlba Loaded');
+      loaded = true;
+      console.log(retried ? '[LeadForm] ReplyAlba Retry Loaded' : '[LeadForm] ReplyAlba Loaded');
       replyFrame.removeEventListener('load', markLoaded);
-      finishReplyResult('전송완료 추정');
     }
 
     replyFrame.addEventListener('load', markLoaded);
 
     function submitReply(isRetry){
-      if (isRetry) replyRetried = true;
+      if (isRetry) retried = true;
       console.log(isRetry ? '[LeadForm] ReplyAlba Retry Start' : '[LeadForm] ReplyAlba Start');
       try {
         HTMLFormElement.prototype.submit.call(form);
@@ -1897,18 +1879,11 @@ function gtag_report_conversion(url) {
     submitReply(false);
 
     setTimeout(function(){
-      if (!replyLoaded && !replyRetried) {
+      if (!loaded && !retried) {
         console.warn('[LeadForm] ReplyAlba timeout. Retry once.');
         submitReply(true);
       }
     }, 800);
-
-    setTimeout(function(){
-      if (!replyLoaded) {
-        replyFrame.removeEventListener('load', markLoaded);
-        finishReplyResult('전송되지 않을수도 있음');
-      }
-    }, 1800);
   }
 
   form.addEventListener('submit', function(e){
@@ -1930,14 +1905,8 @@ function gtag_report_conversion(url) {
       console.warn('[LeadForm] Conversion tracking error', err);
     }
 
+    sendSheetWithRetry();
     sendReplyAlbaWithRetry();
-
-    // iframe load 이벤트가 너무 늦거나 발생하지 않는 경우에도 시트 저장이 누락되지 않도록 안전장치입니다.
-    setTimeout(function(){
-      if (!sheetSent) {
-        sendSheetWithRetry('전송되지 않을수도 있음');
-      }
-    }, 2200);
   });
 })();
 </script>
