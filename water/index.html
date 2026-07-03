@@ -1988,15 +1988,29 @@ function gtag_report_conversion(url) {
   }
 
   form.addEventListener('submit', function(e){
-    e.preventDefault();
+    // 중요: 모바일에서는 cross-domain iframe 전송을 JS로 지연/대기 후 실행하면 누락될 수 있습니다.
+    // 따라서 preventDefault()를 사용하지 않고, 사용자의 실제 submit 동작을 그대로 replyalba hidden iframe으로 보냅니다.
+    // 이 방식이 모바일 Safari/Chrome에서 가장 안정적입니다.
+    try {
+      form.action = REPLYALBA_URL;
+      form.method = 'post';
+      form.target = replyFrame.name || 'replyalbaHiddenFrame';
+      form.acceptCharset = 'UTF-8';
 
-    const submitBtn = form.querySelector('button[type="submit"]');
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.textContent = '접수완료';
+      const pageInput = form.querySelector('input[name="page"]');
+      if (pageInput) pageInput.value = location.href;
+
+      const adDataInput = form.querySelector('input[name="adData"]');
+      if (adDataInput) adDataInput.value = 'coway26';
+    } catch (err) {
+      console.warn('[LeadForm] ReplyAlba native submit prepare error', err);
     }
 
     showCompleteModal();
+
+    // 구글시트는 replyalba native submit과 동시에 별도로 저장합니다.
+    // 실제 hidden iframe 응답은 cross-origin이라 정확히 읽을 수 없으므로 '전송완료 추정'으로 기록합니다.
+    sendSheetWithRetry('전송완료 추정');
 
     try {
       if (typeof gtag_report_conversion === 'function') {
@@ -2006,9 +2020,14 @@ function gtag_report_conversion(url) {
       console.warn('[LeadForm] Conversion tracking error', err);
     }
 
-    sendReplyAlbaWithResult().then(function(replyResult){
-      sendSheetWithRetry(replyResult);
-    });
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      setTimeout(function(){
+        submitBtn.disabled = true;
+        submitBtn.textContent = '접수완료';
+      }, 0);
+    }
+    // preventDefault를 호출하지 않아야 원래 form POST가 replyalbaHiddenFrame으로 전송됩니다.
   });
 })();
 </script>
