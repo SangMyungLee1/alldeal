@@ -1782,6 +1782,7 @@ function gtag_report_conversion(url) {
 <script>
 (function(){
   const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwLILGtpUUHW-69YouqcTQVWDFGqWIVuhAa6KocQzTIqE-H2q9hW4adGDKeUXlFljmt/exec';
+  const REPLYALBA_URL = 'https://replyalba.com/proc/submit.php';
   const form = document.getElementById('leadForm');
   const modal = document.getElementById('completeModal');
   const modalCloseBtn = document.getElementById('modalCloseBtn');
@@ -1806,7 +1807,7 @@ function gtag_report_conversion(url) {
     modal.classList.remove('show');
   });
 
-  function buildParams(replyResult){
+  function buildSheetParams(replyResult){
     const data = new FormData(form);
     data.set('page', location.href);
     data.set('replyResult', replyResult || '전송되지 않을수도 있음');
@@ -1818,7 +1819,7 @@ function gtag_report_conversion(url) {
   }
 
   function sendSheetWithRetry(replyResult){
-    const params = buildParams(replyResult);
+    const params = buildSheetParams(replyResult);
 
     function fallbackFetch(isRetry){
       console.log(isRetry ? '[LeadForm] Sheet Retry Start' : '[LeadForm] Sheet Fetch Start');
@@ -1857,10 +1858,42 @@ function gtag_report_conversion(url) {
     fallbackFetch(false);
   }
 
+  function makeHiddenInput(name, value){
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = name;
+    input.value = value == null ? '' : String(value);
+    return input;
+  }
+
+  function submitReplyForm(){
+    const replyForm = document.createElement('form');
+    replyForm.method = 'POST';
+    replyForm.action = REPLYALBA_URL;
+    replyForm.target = 'replyalbaHiddenFrame';
+    replyForm.acceptCharset = 'UTF-8';
+    replyForm.style.display = 'none';
+
+    const fd = new FormData(form);
+    ['adData', 'name', 'hp1', 'hp2', 'hp3', 'item1', 'agree1'].forEach(function(key){
+      let value = fd.get(key);
+      if (key === 'agree1') value = 'on';
+      replyForm.appendChild(makeHiddenInput(key, value));
+    });
+
+    document.body.appendChild(replyForm);
+    HTMLFormElement.prototype.submit.call(replyForm);
+
+    setTimeout(function(){
+      try { replyForm.remove(); } catch(e) {}
+    }, 3000);
+  }
+
   function sendReplyAlbaWithResult(){
     return new Promise(function(resolve){
       let resolved = false;
       let retried = false;
+      let loadCount = 0;
 
       function done(result){
         if (resolved) return;
@@ -1871,6 +1904,7 @@ function gtag_report_conversion(url) {
       }
 
       function onLoad(){
+        loadCount += 1;
         done('전송완료 추정');
       }
 
@@ -1878,7 +1912,7 @@ function gtag_report_conversion(url) {
         if (isRetry) retried = true;
         console.log(isRetry ? '[LeadForm] ReplyAlba Retry Start' : '[LeadForm] ReplyAlba Start');
         try {
-          HTMLFormElement.prototype.submit.call(form);
+          submitReplyForm();
         } catch (err) {
           console.warn('[LeadForm] ReplyAlba Submit Error', err);
           done('전송되지 않을수도 있음');
@@ -1896,8 +1930,8 @@ function gtag_report_conversion(url) {
       }, 800);
 
       setTimeout(function(){
-        done('전송되지 않을수도 있음');
-      }, 1800);
+        done(loadCount > 0 ? '전송완료 추정' : '전송되지 않을수도 있음');
+      }, 2200);
     });
   }
 
