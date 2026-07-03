@@ -1793,6 +1793,11 @@ function gtag_report_conversion(url) {
     return;
   }
 
+  // 모바일 브라우저에서 display:none iframe 전송이 누락되는 경우가 있어,
+  // 숨기되 렌더링은 유지하는 1px iframe 방식으로 고정합니다.
+  replyFrame.style.cssText = 'position:fixed!important;left:-10000px!important;top:0!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important;border:0!important;visibility:hidden!important;';
+  replyFrame.setAttribute('aria-hidden', 'true');
+
   document.querySelectorAll('#leadForm input[inputmode="numeric"]').forEach(function(el){
     el.addEventListener('input', function(){
       this.value = this.value.replace(/[^0-9]/g, '');
@@ -1807,19 +1812,21 @@ function gtag_report_conversion(url) {
     modal.classList.remove('show');
   });
 
-  function buildSheetParams(replyResult){
+  function getLeadData(replyResult){
     const data = new FormData(form);
     data.set('page', location.href);
     data.set('replyResult', replyResult || '전송되지 않을수도 있음');
+    data.set('adData', 'coway26');
+    data.set('agree1', 'on');
 
     const pageInput = form.querySelector('input[name="page"]');
     if (pageInput) pageInput.value = location.href;
 
-    return new URLSearchParams(data);
+    return data;
   }
 
   function sendSheetWithRetry(replyResult){
-    const params = buildSheetParams(replyResult);
+    const params = new URLSearchParams(getLeadData(replyResult));
 
     function fallbackFetch(isRetry){
       console.log(isRetry ? '[LeadForm] Sheet Retry Start' : '[LeadForm] Sheet Fetch Start');
@@ -1858,42 +1865,36 @@ function gtag_report_conversion(url) {
     fallbackFetch(false);
   }
 
-  function makeHiddenInput(name, value){
-    const input = document.createElement('input');
-    input.type = 'hidden';
-    input.name = name;
-    input.value = value == null ? '' : String(value);
-    return input;
-  }
+  function submitReplyAlbaForm(){
+    const data = getLeadData('');
+    const postForm = document.createElement('form');
+    postForm.method = 'post';
+    postForm.action = REPLYALBA_URL;
+    postForm.target = replyFrame.name || 'replyalbaHiddenFrame';
+    postForm.acceptCharset = 'UTF-8';
+    postForm.style.cssText = 'position:fixed;left:-10000px;top:0;width:1px;height:1px;opacity:0;pointer-events:none;';
 
-  function submitReplyForm(){
-    const replyForm = document.createElement('form');
-    replyForm.method = 'POST';
-    replyForm.action = REPLYALBA_URL;
-    replyForm.target = 'replyalbaHiddenFrame';
-    replyForm.acceptCharset = 'UTF-8';
-    replyForm.style.display = 'none';
-
-    const fd = new FormData(form);
+    // replyalba에는 실제 접수에 필요한 필드만 전송합니다.
     ['adData', 'name', 'hp1', 'hp2', 'hp3', 'item1', 'agree1'].forEach(function(key){
-      let value = fd.get(key);
-      if (key === 'agree1') value = 'on';
-      replyForm.appendChild(makeHiddenInput(key, value));
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = key;
+      input.value = data.get(key) || '';
+      postForm.appendChild(input);
     });
 
-    document.body.appendChild(replyForm);
-    HTMLFormElement.prototype.submit.call(replyForm);
+    document.body.appendChild(postForm);
+    HTMLFormElement.prototype.submit.call(postForm);
 
     setTimeout(function(){
-      try { replyForm.remove(); } catch(e) {}
-    }, 3000);
+      if (postForm && postForm.parentNode) postForm.parentNode.removeChild(postForm);
+    }, 5000);
   }
 
   function sendReplyAlbaWithResult(){
     return new Promise(function(resolve){
       let resolved = false;
       let retried = false;
-      let loadCount = 0;
 
       function done(result){
         if (resolved) return;
@@ -1904,7 +1905,6 @@ function gtag_report_conversion(url) {
       }
 
       function onLoad(){
-        loadCount += 1;
         done('전송완료 추정');
       }
 
@@ -1912,7 +1912,7 @@ function gtag_report_conversion(url) {
         if (isRetry) retried = true;
         console.log(isRetry ? '[LeadForm] ReplyAlba Retry Start' : '[LeadForm] ReplyAlba Start');
         try {
-          submitReplyForm();
+          submitReplyAlbaForm();
         } catch (err) {
           console.warn('[LeadForm] ReplyAlba Submit Error', err);
           done('전송되지 않을수도 있음');
@@ -1927,11 +1927,11 @@ function gtag_report_conversion(url) {
           console.warn('[LeadForm] ReplyAlba timeout. Retry once.');
           submitReply(true);
         }
-      }, 800);
+      }, 1200);
 
       setTimeout(function(){
-        done(loadCount > 0 ? '전송완료 추정' : '전송되지 않을수도 있음');
-      }, 2200);
+        done('전송되지 않을수도 있음');
+      }, 3000);
     });
   }
 
@@ -1954,6 +1954,7 @@ function gtag_report_conversion(url) {
       console.warn('[LeadForm] Conversion tracking error', err);
     }
 
+    // replyalba 전송 결과 추정값을 받은 뒤 구글시트에 함께 저장합니다.
     sendReplyAlbaWithResult().then(function(replyResult){
       sendSheetWithRetry(replyResult);
     });
