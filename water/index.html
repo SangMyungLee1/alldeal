@@ -1656,8 +1656,8 @@ function gtag_report_conversion(url) {
   <section class="formbox">
     
 
-    <form id="leadForm" action="https://replyalba.com/proc/submit.php" method="post" accept-charset="UTF-8" target="replyalbaHiddenFrame">
-      <input type="hidden" name="adData" value="coway26">
+    <form id="leadForm" action="https://replyalba.com/proc/submit.php" method="post" accept-charset="UTF-8">
+      <input type="hidden" name="adData" value="xODstSU837">
       <input type="hidden" name="page" value="">
 
       <div class="row">
@@ -1768,7 +1768,8 @@ function gtag_report_conversion(url) {
   </section>
 </div>
 
-<iframe name="replyalbaHiddenFrame" id="replyalbaHiddenFrame" style="position:fixed!important;left:-10000px!important;top:0!important;width:2px!important;height:2px!important;opacity:0.01!important;pointer-events:none!important;border:0!important;" title="hidden submit" aria-hidden="true"></iframe>
+<!-- replyalba 공식 iframe warm-up: 모바일에서 display:none iframe POST가 누락될 수 있어 화면 밖 2px로 유지합니다. -->
+<iframe name="ifrm_icode" id="ifrCCAl" scrolling="no" frameborder="0" width="2" height="2" src="https://replyalba.com/intros/_frm/index.php?code=xODstSU837" style="position:fixed!important;left:-10000px!important;top:0!important;width:2px!important;height:2px!important;opacity:0.01!important;pointer-events:none!important;border:0!important;" title="replyalba hidden form" aria-hidden="true"></iframe>
 
 <div class="lead-modal-overlay" id="completeModal" role="dialog" aria-modal="true" aria-labelledby="completeModalTitle">
   <div class="lead-modal-card">
@@ -1783,12 +1784,15 @@ function gtag_report_conversion(url) {
 (function(){
   const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwLILGtpUUHW-69YouqcTQVWDFGqWIVuhAa6KocQzTIqE-H2q9hW4adGDKeUXlFljmt/exec';
   const REPLYALBA_URL = 'https://replyalba.com/proc/submit.php';
+  const REPLYALBA_CODE = 'xODstSU837';
+  const REPLYALBA_FRAME_NAME = 'ifrm_icode';
+
   const form = document.getElementById('leadForm');
   const modal = document.getElementById('completeModal');
   const modalCloseBtn = document.getElementById('modalCloseBtn');
-  const replyFrame = document.getElementById('replyalbaHiddenFrame');
+  const replyFrame = document.getElementById('ifrCCAl');
 
-  if (!form || !modal || !modalCloseBtn) {
+  if (!form || !modal || !modalCloseBtn || !replyFrame) {
     console.warn('[LeadForm] 필수 요소를 찾지 못했습니다.');
     return;
   }
@@ -1814,80 +1818,77 @@ function gtag_report_conversion(url) {
     return 'PC';
   }
 
-  function isMobileDevice(){
-    return getDeviceType() === '모바일';
+  function makeLeadId(){
+    return Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
   }
 
-  function buildSheetParams(deviceType, replyMode, replyResult){
+  function collectData(extra){
     const data = new FormData(form);
+    data.set('adData', REPLYALBA_CODE);
+    data.set('agree1', 'on');
     data.set('page', location.href);
-    data.set('deviceType', deviceType);
-    data.set('replyMode', replyMode);
-    data.set('replyResult', replyResult);
+    data.set('deviceType', getDeviceType());
+    data.set('replyCode', REPLYALBA_CODE);
+    data.set('sendMode', '공식iframe_현재화면유지');
+    Object.keys(extra || {}).forEach(function(key){
+      data.set(key, extra[key]);
+    });
 
     const pageInput = form.querySelector('input[name="page"]');
     if (pageInput) pageInput.value = location.href;
 
-    return new URLSearchParams(data);
+    return data;
   }
 
-  function sendSheet(params){
-    function fallbackFetch(isRetry){
-      console.log(isRetry ? '[LeadForm] Sheet Retry Start' : '[LeadForm] Sheet Fetch Start');
-      return fetch(GOOGLE_SHEET_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-        body: params.toString(),
-        keepalive: true
-      }).then(function(){
-        console.log(isRetry ? '[LeadForm] Sheet Retry Queued' : '[LeadForm] Sheet Queued');
-      }).catch(function(err){
-        if (!isRetry) {
-          console.warn('[LeadForm] Sheet Fetch Fail. Retry once.', err);
-          setTimeout(function(){ fallbackFetch(true).catch(function(){}); }, 1000);
-        } else {
-          console.warn('[LeadForm] Sheet Retry Fail', err);
-        }
-      });
-    }
+  function sendSheet(extra, preferBeacon){
+    const params = new URLSearchParams(collectData(extra));
 
-    try {
-      if (navigator.sendBeacon) {
+    if (preferBeacon && navigator.sendBeacon) {
+      try {
         const blob = new Blob([params.toString()], { type: 'application/x-www-form-urlencoded;charset=UTF-8' });
-        const queued = navigator.sendBeacon(GOOGLE_SHEET_URL, blob);
-        if (queued) {
-          console.log('[LeadForm] Sheet Beacon Queued');
-          return;
+        if (navigator.sendBeacon(GOOGLE_SHEET_URL, blob)) {
+          console.log('[LeadForm] Sheet beacon queued:', params.get('sheetAction'), params.get('replyResult'));
+          return Promise.resolve();
         }
-        console.warn('[LeadForm] Sheet Beacon rejected. Use fetch fallback.');
+      } catch (err) {
+        console.warn('[LeadForm] Sheet beacon error:', err);
       }
-    } catch (err) {
-      console.warn('[LeadForm] Sheet Beacon Error. Use fetch fallback.', err);
     }
 
-    fallbackFetch(false);
+    return fetch(GOOGLE_SHEET_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+      body: params.toString(),
+      keepalive: true
+    }).catch(function(err){
+      console.warn('[LeadForm] Sheet fetch error:', err);
+    });
   }
 
-  function submitToReplyAlba(deviceType){
-    form.action = REPLYALBA_URL;
-    form.method = 'post';
-    form.acceptCharset = 'UTF-8';
+  function submitReplyAlbaToOfficialIframe(){
+    const data = collectData({});
+    const postForm = document.createElement('form');
+    postForm.method = 'POST';
+    postForm.action = REPLYALBA_URL;
+    postForm.target = REPLYALBA_FRAME_NAME;
+    postForm.acceptCharset = 'UTF-8';
+    postForm.style.cssText = 'position:fixed;left:-10000px;top:0;width:2px;height:2px;opacity:0.01;pointer-events:none;';
 
-    if (deviceType === '모바일') {
-      // 모바일은 숨김 iframe POST가 막히는 경우가 많아 현재창으로 직접 전송합니다.
-      // 이 경우 replyalba JSON 화면이 보일 수 있지만, 접수 성공 가능성이 가장 높습니다.
-      form.removeAttribute('target');
-      console.log('[LeadForm] Mobile top-level ReplyAlba submit');
-      setTimeout(function(){
-        HTMLFormElement.prototype.submit.call(form);
-      }, 350);
-    } else {
-      // PC/태블릿은 기존처럼 숨김 iframe으로 전송합니다.
-      form.target = 'replyalbaHiddenFrame';
-      console.log('[LeadForm] PC iframe ReplyAlba submit');
-      HTMLFormElement.prototype.submit.call(form);
-    }
+    ['adData', 'name', 'hp1', 'hp2', 'hp3', 'item1', 'agree1'].forEach(function(key){
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = key;
+      input.value = key === 'agree1' ? 'on' : (data.get(key) || '');
+      postForm.appendChild(input);
+    });
+
+    document.body.appendChild(postForm);
+    HTMLFormElement.prototype.submit.call(postForm);
+
+    setTimeout(function(){
+      try { postForm.remove(); } catch(e) {}
+    }, 7000);
   }
 
   form.addEventListener('submit', function(e){
@@ -1906,13 +1907,53 @@ function gtag_report_conversion(url) {
 
     showCompleteModal();
 
-    const deviceType = getDeviceType();
-    const mobile = deviceType === '모바일';
-    const replyMode = mobile ? '모바일 현재창 직접전송' : 'PC 숨김 iframe 전송';
-    const replyResult = mobile ? '현재창 전송시도' : '전송완료 추정';
+    const leadId = makeLeadId();
+    let statusUpdated = false;
+    let postSubmitted = false;
 
-    const params = buildSheetParams(deviceType, replyMode, replyResult);
-    sendSheet(params);
+    // DB를 먼저 남깁니다. 고객이 바로 이탈해도 최소 접수 기록은 남도록 합니다.
+    sendSheet({
+      sheetAction: 'append',
+      leadId: leadId,
+      replyResult: '전송시도',
+      replyDetail: '전용코드 ' + REPLYALBA_CODE + ' 공식 iframe POST 시작'
+    }, true);
+
+    function updateStatus(result, detail){
+      if (statusUpdated) return;
+      statusUpdated = true;
+      sendSheet({
+        sheetAction: 'update',
+        leadId: leadId,
+        replyResult: result,
+        replyDetail: detail || ''
+      }, false);
+    }
+
+    function onReplyFrameLoad(){
+      // 최초 iframe warm-up load는 무시하고, POST 이후 load만 결과로 봅니다.
+      if (!postSubmitted) return;
+      console.log('[LeadForm] ReplyAlba iframe loaded after POST.');
+      updateStatus('전송완료 추정', '공식 iframe load 감지');
+      replyFrame.removeEventListener('load', onReplyFrameLoad);
+    }
+
+    replyFrame.addEventListener('load', onReplyFrameLoad);
+
+    try {
+      postSubmitted = true;
+      submitReplyAlbaToOfficialIframe();
+    } catch (err) {
+      console.warn('[LeadForm] ReplyAlba submit error:', err);
+      updateStatus('전송되지 않을수도 있음', String(err).slice(0, 300));
+    }
+
+    setTimeout(function(){
+      if (!statusUpdated) {
+        updateStatus('전송되지 않을수도 있음', 'iframe load 미감지. 모바일 브라우저 차단 가능성');
+        replyFrame.removeEventListener('load', onReplyFrameLoad);
+      }
+    }, 4500);
 
     try {
       if (typeof gtag_report_conversion === 'function') {
@@ -1921,8 +1962,6 @@ function gtag_report_conversion(url) {
     } catch (err) {
       console.warn('[LeadForm] Conversion tracking error', err);
     }
-
-    submitToReplyAlba(deviceType);
   });
 })();
 </script>
