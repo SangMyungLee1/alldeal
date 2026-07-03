@@ -1656,7 +1656,7 @@ function gtag_report_conversion(url) {
   <section class="formbox">
     
 
-    <form id="leadForm" action="https://replyalba.com/proc/submit.php" method="post" accept-charset="UTF-8" target="replyalbaHiddenFrame">
+    <form id="leadForm" action="https://script.google.com/macros/s/AKfycbwLILGtpUUHW-69YouqcTQVWDFGqWIVuhAa6KocQzTIqE-H2q9hW4adGDKeUXlFljmt/exec" method="post" accept-charset="UTF-8">
       <input type="hidden" name="adData" value="coway26">
       <input type="hidden" name="page" value="">
 
@@ -1768,8 +1768,6 @@ function gtag_report_conversion(url) {
   </section>
 </div>
 
-<iframe name="replyalbaHiddenFrame" id="replyalbaHiddenFrame" src="https://replyalba.com/pt/CXhcwgsFBP" style="position:fixed!important;left:-10000px!important;top:0!important;width:2px!important;height:2px!important;opacity:0.01!important;pointer-events:none!important;border:0!important;" title="hidden submit" aria-hidden="true"></iframe>
-
 <div class="lead-modal-overlay" id="completeModal" role="dialog" aria-modal="true" aria-labelledby="completeModalTitle">
   <div class="lead-modal-card">
     <div class="lead-modal-icon">✓</div>
@@ -1781,45 +1779,15 @@ function gtag_report_conversion(url) {
 
 <script>
 (function(){
-  const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwLILGtpUUHW-69YouqcTQVWDFGqWIVuhAa6KocQzTIqE-H2q9hW4adGDKeUXlFljmt/exec';
-  const REPLYALBA_URL = 'https://replyalba.com/proc/submit.php';
-  const REPLYALBA_WARMUP_URL = 'https://replyalba.com/pt/CXhcwgsFBP';
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwLILGtpUUHW-69YouqcTQVWDFGqWIVuhAa6KocQzTIqE-H2q9hW4adGDKeUXlFljmt/exec';
   const form = document.getElementById('leadForm');
   const modal = document.getElementById('completeModal');
   const modalCloseBtn = document.getElementById('modalCloseBtn');
-  const replyFrame = document.getElementById('replyalbaHiddenFrame');
 
-  if (!form || !modal || !modalCloseBtn || !replyFrame) {
+  if (!form || !modal || !modalCloseBtn) {
     console.warn('[LeadForm] 필수 요소를 찾지 못했습니다.');
     return;
   }
-
-  // 모바일 브라우저에서는 display:none / visibility:hidden iframe으로 POST가 누락될 수 있습니다.
-  // 그래서 화면 밖 2px iframe으로 유지하고, replyalba 페이지를 먼저 로드해 세션/쿠키를 준비합니다.
-  replyFrame.style.cssText = 'position:fixed!important;left:-10000px!important;top:0!important;width:2px!important;height:2px!important;opacity:0.01!important;pointer-events:none!important;border:0!important;';
-  replyFrame.setAttribute('aria-hidden', 'true');
-
-  let replyWarmupReady = false;
-  let replyWarmupStartedAt = Date.now();
-
-  function startReplyWarmup(){
-    try {
-      replyWarmupReady = false;
-      replyWarmupStartedAt = Date.now();
-      if (!replyFrame.getAttribute('src')) {
-        replyFrame.setAttribute('src', REPLYALBA_WARMUP_URL);
-      }
-    } catch (err) {
-      console.warn('[LeadForm] ReplyAlba warmup error', err);
-    }
-  }
-
-  replyFrame.addEventListener('load', function(){
-    // 최초 pt 페이지 로딩 또는 POST 응답 로딩 모두 load가 발생할 수 있습니다.
-    replyWarmupReady = true;
-    console.log('[LeadForm] ReplyAlba iframe load');
-  });
-  startReplyWarmup();
 
   document.querySelectorAll('#leadForm input[inputmode="numeric"]').forEach(function(el){
     el.addEventListener('input', function(){
@@ -1835,182 +1803,65 @@ function gtag_report_conversion(url) {
     modal.classList.remove('show');
   });
 
-  function getLeadData(replyResult){
+  function getDeviceType(){
+    const ua = navigator.userAgent || '';
+    if (/iPad|Tablet|SM-T|Galaxy Tab/i.test(ua)) return '태블릿';
+    if (/Android|iPhone|iPod|Mobile/i.test(ua) || window.innerWidth <= 768) return '모바일';
+    return 'PC';
+  }
+
+  function buildLeadParams(){
     const data = new FormData(form);
     data.set('page', location.href);
-    data.set('replyResult', replyResult || '전송되지 않을수도 있음');
     data.set('adData', 'coway26');
     data.set('agree1', 'on');
+    data.set('deviceType', getDeviceType());
+    data.set('sendMode', 'AppsScript_to_ReplyAlba');
 
     const pageInput = form.querySelector('input[name="page"]');
     if (pageInput) pageInput.value = location.href;
 
-    return data;
+    return new URLSearchParams(data);
   }
 
-  function sendSheetWithRetry(replyResult){
-    const params = new URLSearchParams(getLeadData(replyResult));
-
-    function fallbackFetch(isRetry){
-      console.log(isRetry ? '[LeadForm] Sheet Retry Start' : '[LeadForm] Sheet Fetch Start');
-      return fetch(GOOGLE_SHEET_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-        body: params.toString(),
-        keepalive: true
-      }).then(function(){
-        console.log(isRetry ? '[LeadForm] Sheet Retry Queued' : '[LeadForm] Sheet Queued');
-      }).catch(function(err){
-        if (!isRetry) {
-          console.warn('[LeadForm] Sheet Fetch Fail. Retry once.', err);
-          setTimeout(function(){ fallbackFetch(true).catch(function(){}); }, 1000);
-        } else {
-          console.warn('[LeadForm] Sheet Retry Fail', err);
-        }
-      });
-    }
-
-    try {
-      if (navigator.sendBeacon) {
-        const blob = new Blob([params.toString()], { type: 'application/x-www-form-urlencoded;charset=UTF-8' });
-        const queued = navigator.sendBeacon(GOOGLE_SHEET_URL, blob);
-        if (queued) {
-          console.log('[LeadForm] Sheet Beacon Queued');
-          return;
-        }
-        console.warn('[LeadForm] Sheet Beacon rejected. Use fetch fallback.');
+  function sendToAppsScript(params, isRetry){
+    console.log(isRetry ? '[LeadForm] Apps Script Retry Start' : '[LeadForm] Apps Script Start');
+    return fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+      body: params.toString(),
+      keepalive: true
+    }).then(function(){
+      console.log(isRetry ? '[LeadForm] Apps Script Retry Queued' : '[LeadForm] Apps Script Queued');
+    }).catch(function(err){
+      if (!isRetry) {
+        console.warn('[LeadForm] Apps Script Fail. Retry once.', err);
+        setTimeout(function(){ sendToAppsScript(params, true).catch(function(){}); }, 1000);
+      } else {
+        console.warn('[LeadForm] Apps Script Retry Fail', err);
       }
-    } catch (err) {
-      console.warn('[LeadForm] Sheet Beacon Error. Use fetch fallback.', err);
-    }
-
-    fallbackFetch(false);
-  }
-
-  function waitReplyWarmup(maxWaitMs){
-    return new Promise(function(resolve){
-      if (replyWarmupReady || Date.now() - replyWarmupStartedAt > maxWaitMs) {
-        resolve();
-        return;
-      }
-      const started = Date.now();
-      const timer = setInterval(function(){
-        if (replyWarmupReady || Date.now() - started >= maxWaitMs) {
-          clearInterval(timer);
-          resolve();
-        }
-      }, 80);
-    });
-  }
-
-  function submitReplyAlbaForm(){
-    const data = getLeadData('');
-    const postForm = document.createElement('form');
-    postForm.method = 'post';
-    postForm.action = REPLYALBA_URL;
-    postForm.target = replyFrame.name || 'replyalbaHiddenFrame';
-    postForm.acceptCharset = 'UTF-8';
-    postForm.style.cssText = 'position:fixed;left:-10000px;top:0;width:2px;height:2px;opacity:0.01;pointer-events:none;';
-
-    // replyalba 실제 접수 payload와 동일한 핵심 필드만 전송합니다.
-    ['adData', 'name', 'hp1', 'hp2', 'hp3', 'item1', 'agree1'].forEach(function(key){
-      const input = document.createElement('input');
-      input.type = 'hidden';
-      input.name = key;
-      input.value = data.get(key) || '';
-      postForm.appendChild(input);
-    });
-
-    document.body.appendChild(postForm);
-    HTMLFormElement.prototype.submit.call(postForm);
-
-    setTimeout(function(){
-      if (postForm && postForm.parentNode) postForm.parentNode.removeChild(postForm);
-    }, 7000);
-  }
-
-  function sendReplyAlbaWithResult(){
-    return new Promise(function(resolve){
-      let resolved = false;
-      let postSubmitted = false;
-      let retryCount = 0;
-
-      function done(result){
-        if (resolved) return;
-        resolved = true;
-        replyFrame.removeEventListener('load', onLoadAfterPost);
-        console.log('[LeadForm] ReplyAlba Result:', result);
-        resolve(result);
-      }
-
-      function onLoadAfterPost(){
-        if (!postSubmitted) return;
-        done('전송완료 추정');
-      }
-
-      function submitReply(isRetry){
-        if (isRetry) retryCount += 1;
-        console.log(isRetry ? '[LeadForm] ReplyAlba Retry Start' : '[LeadForm] ReplyAlba Start');
-        try {
-          postSubmitted = true;
-          submitReplyAlbaForm();
-        } catch (err) {
-          console.warn('[LeadForm] ReplyAlba Submit Error', err);
-          if (retryCount < 1) {
-            setTimeout(function(){ submitReply(true); }, 800);
-          } else {
-            done('전송되지 않을수도 있음');
-          }
-        }
-      }
-
-      replyFrame.addEventListener('load', onLoadAfterPost);
-
-      // 모바일에서 replyalba 세션 준비 전 바로 POST하면 접수가 누락될 수 있어 짧게 대기합니다.
-      waitReplyWarmup(1200).then(function(){
-        submitReply(false);
-
-        setTimeout(function(){
-          if (!resolved && retryCount < 1) {
-            console.warn('[LeadForm] ReplyAlba timeout. Retry once.');
-            // 재시도 전 warmup 페이지를 다시 한번 로드해 모바일 쿠키/세션 누락 가능성을 낮춥니다.
-            try { replyFrame.setAttribute('src', REPLYALBA_WARMUP_URL); } catch(e) {}
-            setTimeout(function(){ submitReply(true); }, 900);
-          }
-        }, 2200);
-
-        setTimeout(function(){
-          done('전송되지 않을수도 있음');
-        }, 5200);
-      });
     });
   }
 
   form.addEventListener('submit', function(e){
-    // 중요: 모바일에서는 cross-domain iframe 전송을 JS로 지연/대기 후 실행하면 누락될 수 있습니다.
-    // 따라서 preventDefault()를 사용하지 않고, 사용자의 실제 submit 동작을 그대로 replyalba hidden iframe으로 보냅니다.
-    // 이 방식이 모바일 Safari/Chrome에서 가장 안정적입니다.
-    try {
-      form.action = REPLYALBA_URL;
-      form.method = 'post';
-      form.target = replyFrame.name || 'replyalbaHiddenFrame';
-      form.acceptCharset = 'UTF-8';
+    e.preventDefault();
 
-      const pageInput = form.querySelector('input[name="page"]');
-      if (pageInput) pageInput.value = location.href;
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
 
-      const adDataInput = form.querySelector('input[name="adData"]');
-      if (adDataInput) adDataInput.value = 'coway26';
-    } catch (err) {
-      console.warn('[LeadForm] ReplyAlba native submit prepare error', err);
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = '접수완료';
     }
 
     showCompleteModal();
 
-    // 구글시트는 replyalba native submit과 동시에 별도로 저장합니다.
-    // 실제 hidden iframe 응답은 cross-origin이라 정확히 읽을 수 없으므로 '전송완료 추정'으로 기록합니다.
-    sendSheetWithRetry('전송완료 추정');
+    const params = buildLeadParams();
+    sendToAppsScript(params, false);
 
     try {
       if (typeof gtag_report_conversion === 'function') {
@@ -2019,15 +1870,6 @@ function gtag_report_conversion(url) {
     } catch (err) {
       console.warn('[LeadForm] Conversion tracking error', err);
     }
-
-    const submitBtn = form.querySelector('button[type="submit"]');
-    if (submitBtn) {
-      setTimeout(function(){
-        submitBtn.disabled = true;
-        submitBtn.textContent = '접수완료';
-      }, 0);
-    }
-    // preventDefault를 호출하지 않아야 원래 form POST가 replyalbaHiddenFrame으로 전송됩니다.
   });
 })();
 </script>
