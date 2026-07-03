@@ -1657,7 +1657,7 @@ function gtag_report_conversion(url) {
     
 
     <form id="leadForm" action="https://replyalba.com/proc/submit.php" method="post" accept-charset="UTF-8">
-      <input type="hidden" name="adData" value="xODstSU837">
+      <input type="hidden" name="adData" value="coway26">
       <input type="hidden" name="page" value="">
 
       <div class="row">
@@ -1769,7 +1769,7 @@ function gtag_report_conversion(url) {
 </div>
 
 <!-- replyalba 공식 iframe warm-up: 모바일에서 display:none iframe POST가 누락될 수 있어 화면 밖 2px로 유지합니다. -->
-<iframe name="ifrm_icode" id="ifrCCAl" scrolling="no" frameborder="0" width="2" height="2" src="https://replyalba.com/intros/_frm/index.php?code=xODstSU837" style="position:fixed!important;left:-10000px!important;top:0!important;width:2px!important;height:2px!important;opacity:0.01!important;pointer-events:none!important;border:0!important;" title="replyalba hidden form" aria-hidden="true"></iframe>
+<iframe name="ifrm_icode" id="ifrCCAl" scrolling="no" frameborder="0" width="2" height="2" src="https://replyalba.com/intros/_frm/index.php?code=CXhcwgsFBP" style="position:fixed!important;left:-10000px!important;top:0!important;width:2px!important;height:2px!important;opacity:0.01!important;pointer-events:none!important;border:0!important;" title="replyalba hidden form" aria-hidden="true"></iframe>
 
 <div class="lead-modal-overlay" id="completeModal" role="dialog" aria-modal="true" aria-labelledby="completeModalTitle">
   <div class="lead-modal-card">
@@ -1784,7 +1784,8 @@ function gtag_report_conversion(url) {
 (function(){
   const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwLILGtpUUHW-69YouqcTQVWDFGqWIVuhAa6KocQzTIqE-H2q9hW4adGDKeUXlFljmt/exec';
   const REPLYALBA_URL = 'https://replyalba.com/proc/submit.php';
-  const REPLYALBA_CODE = 'xODstSU837';
+  const REPLYALBA_CODE = 'CXhcwgsFBP';
+  const REPLYALBA_AD_DATA = 'coway26';
   const REPLYALBA_FRAME_NAME = 'ifrm_icode';
 
   const form = document.getElementById('leadForm');
@@ -1824,7 +1825,7 @@ function gtag_report_conversion(url) {
 
   function collectData(extra){
     const data = new FormData(form);
-    data.set('adData', REPLYALBA_CODE);
+    data.set('adData', REPLYALBA_AD_DATA);
     data.set('agree1', 'on');
     data.set('page', location.href);
     data.set('deviceType', getDeviceType());
@@ -1916,7 +1917,7 @@ function gtag_report_conversion(url) {
       sheetAction: 'append',
       leadId: leadId,
       replyResult: '전송시도',
-      replyDetail: '전용코드 ' + REPLYALBA_CODE + ' 공식 iframe POST 시작'
+      replyDetail: '전용코드 ' + REPLYALBA_CODE + ' / adData ' + REPLYALBA_AD_DATA + ' 공식 iframe POST 시작'
     }, true);
 
     function updateStatus(result, detail){
