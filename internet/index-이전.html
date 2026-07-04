@@ -32,14 +32,13 @@ function gtag_report_conversion(url) {
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>올딜 - 서울 인터넷가입 변경 현금 사은품 최대지원 혜택 비교 성지 </title>
+    <title>인터넷 올딜 - 선착순 현금최대지원! 마진 0원 혜택</title>
     <meta name="description" content="인터넷가입. SK, KT, LG 요금제부터 현금지원, 사은품, 결합할인, 설치 가능 지역까지 빠르게 상담해드립니다.">
-    <meta name="keywords" content="서울 인터넷가입, 서울 인터넷가입 현금사은품, 서울 인터넷 사은품 현금 많이 주는곳, 서울 인터넷가입 비밀지원금, 서울 인터넷 혜택비교, 서울 인터넷가입 당일지급, 서울 인터넷 통신사변경, 서울 인터넷가입 추천, 인터넷가입, 인터넷가입 현금사은품, 인터넷가입 TV사은품, 인터넷가입 당일지급, 인터넷가입 최대사은품, 인터넷가입 현금지원, 인터넷가입 혜택비교, 인터넷티비가입, 인터넷설치 상담, 인터넷가입 추천, 서울 인터넷 가입 현금지원, 서울 통신사변경 사은품, 서울 인터넷 비교, 서울 인터넷 설치, 서울 기가인터넷 가입">
+    <meta name="keywords" content="인터넷가입, 인터넷가입 현금사은품, 인터넷가입 TV사은품, 인터넷가입 당일지급, 인터넷가입 최대사은품, 인터넷가입 현금지원, 인터넷가입 혜택비교, 인터넷티비가입, 인터넷설치 상담, 인터넷가입 추천">
     <meta name="robots" content="index, follow">
     <meta name="naver-site-verification" content="a0a65add46ff856e06b42fd96734d6310a3d92ee" />
     <meta name="google-site-verification" content="BrkLCgmG-N12hG5GCDCCnfc4FoS_3rY4VWRO9WjHaqM" />
-  <link rel="canonical" href="https://life-helper.co.kr/internet/notice/seoul/seoul.html">
-  <meta property="og:url" content="https://life-helper.co.kr/internet/notice/seoul/seoul.html">
+    <link rel="canonical" href="https://life-helper.co.kr/internet/">
     <script>
       // /internet 로 접속해도 대표 주소인 /internet/ 로 맞춰줍니다.
       if (window.location.pathname === "/internet") {
@@ -82,7 +81,7 @@ function gtag_report_conversion(url) {
             background-color: #eef4ff;
             background-image:
                 linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(238,244,255,0.35) 40%, rgba(224,242,254,0.45) 100%),
-                url('https://life-helper.co.kr/internet/bg-pastel.webp');
+                url('bg-pastel.webp');
             background-size: cover;
             background-position: center top;
             background-attachment: fixed;
@@ -1154,6 +1153,218 @@ function gtag_report_conversion(url) {
         }
     }
 
+    
+    /* 2번째 배너 + 별점 후기 롤링 영역 */
+    .second-banner-section{width:min(100%,1120px);margin:26px auto 0;padding:0 20px}
+    .second-banner-section img{display:block;width:100%;height:auto;object-fit:contain;border-radius:28px;border:1px solid var(--border);background:var(--card);box-shadow:var(--shadow)}
+    .review-section{margin-top:34px;padding:24px 0 36px;overflow:hidden;background:linear-gradient(180deg,rgba(232,239,255,.82) 0%,rgba(241,246,251,.92) 100%)}
+    .review-rating-title{text-align:center;margin-bottom:18px;color:var(--foreground);font-size:15px;font-weight:900;letter-spacing:-.02em}
+    .review-rating-title .stars{color:#f59e0b;font-size:18px;letter-spacing:1px;margin-right:6px;text-shadow:0 1px 0 rgba(0,0,0,.08)}
+    .review-rating-title .score{color:var(--primary);font-weight:950}
+    .review-carousel{width:100%;overflow:hidden;position:relative}
+    .review-carousel::before,.review-carousel::after{content:"";position:absolute;top:0;width:82px;height:100%;z-index:2;pointer-events:none}
+    .review-carousel::before{left:0;background:linear-gradient(90deg,var(--background),rgba(241,246,251,0))}
+    .review-carousel::after{right:0;background:linear-gradient(270deg,var(--background),rgba(241,246,251,0))}
+    .review-track{display:flex;gap:16px;width:max-content;animation:reviewSlide 110s linear infinite;padding:0 16px}
+    .review-carousel:hover .review-track{animation-play-state:paused}
+    .review-card{flex:0 0 220px;background:#fff;border:1px solid var(--border);border-radius:18px;padding:12px;box-shadow:0 8px 22px rgba(15,23,42,.06)}
+    .review-card img{width:100%;height:108px;object-fit:cover;border-radius:12px;background:#e2e8f0;margin-bottom:10px}
+    .review-card .review-stars{color:#f59e0b;font-size:15px;line-height:1;margin-bottom:8px;letter-spacing:1px}
+    .review-card p{margin:0;color:var(--foreground);font-size:13px;line-height:1.55;word-break:keep-all}
+    .review-card .review-name{margin-top:10px;color:var(--muted);font-size:12px;font-weight:900}
+    @keyframes reviewSlide{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    @media(max-width:768px){
+        .second-banner-section{margin-top:18px;padding:0 14px}
+        .second-banner-section img{border-radius:20px}
+        .review-section{margin-top:24px;padding:20px 0 30px}
+        .review-card{flex-basis:196px;padding:10px}
+        .review-card img{height:96px}
+        .review-track{animation-duration:130s;gap:12px}
+        .review-carousel::before,.review-carousel::after{width:36px}
+    }
+
+
+    /* 인터넷가입 주의점 박스 */
+    .internet-caution-wrap {
+        margin-top: 34px;
+        padding: 30px 26px;
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        box-shadow: 0 10px 28px rgba(15, 23, 42, 0.05);
+    }
+
+    .internet-caution-head {
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    .internet-caution-main-image {
+        width: min(100%, 980px);
+        aspect-ratio: 16 / 5;
+        margin: 0 auto 24px;
+        border-radius: 26px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: linear-gradient(135deg, #e8efff 0%, #ffffff 100%);
+        box-shadow: 0 12px 26px rgba(15, 23, 42, 0.06);
+    }
+
+    .internet-caution-main-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .internet-caution-kicker {
+        display: inline-block;
+        margin-bottom: 14px;
+        padding: 11px 22px;
+        border-radius: 999px;
+        background: var(--primary-soft);
+        color: var(--primary);
+        font-size: 20px;
+        font-weight: 950;
+        letter-spacing: -0.035em;
+        box-shadow: 0 8px 18px rgba(65, 105, 225, 0.10);
+    }
+
+    .internet-caution-title {
+        margin: 0 0 10px;
+        color: var(--foreground);
+        font-size: clamp(26px, 3vw, 36px);
+        line-height: 1.3;
+        letter-spacing: -0.05em;
+        font-weight: 950;
+    }
+
+    .internet-caution-sub {
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.7;
+        word-break: keep-all;
+    }
+
+    .internet-caution-card {
+        height: 100%;
+        background: #ffffff;
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        overflow: hidden;
+        box-shadow: 0 8px 22px rgba(15, 23, 42, 0.04);
+        transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+
+    .internet-caution-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--primary);
+        box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
+    }
+
+    .internet-caution-thumb {
+        position: relative;
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+        background: #eaf1fb;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .internet-caution-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .internet-caution-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 54px;
+        height: 54px;
+        padding: 0 14px;
+        border-radius: 999px;
+        background: rgba(65, 105, 225, 0.95);
+        color: #ffffff;
+        font-size: 23px;
+        line-height: 1;
+        font-weight: 950;
+        box-shadow: 0 8px 16px rgba(65, 105, 225, 0.22);
+    }
+
+    .internet-caution-body {
+        padding: 18px 18px 20px;
+    }
+
+    .internet-caution-card h4 {
+        margin: 0 0 10px;
+        color: var(--foreground);
+        font-size: 20px;
+        line-height: 1.4;
+        letter-spacing: -0.04em;
+        font-weight: 950;
+        word-break: keep-all;
+    }
+
+    .internet-caution-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.7;
+        word-break: keep-all;
+    }
+
+    .internet-caution-card .point-text {
+        color: var(--primary);
+        font-weight: 800;
+    }
+
+    @media (max-width: 768px) {
+        .internet-caution-wrap {
+            margin-top: 24px;
+            padding: 24px 18px;
+            border-radius: 22px;
+        }
+
+        .internet-caution-head {
+            margin-bottom: 18px;
+        }
+
+        .internet-caution-main-image {
+            aspect-ratio: 16 / 7;
+            margin-bottom: 18px;
+            border-radius: 20px;
+        }
+
+        .internet-caution-kicker {
+            font-size: 17px;
+            padding: 9px 18px;
+        }
+
+        .internet-caution-badge {
+            min-width: 46px;
+            height: 46px;
+            font-size: 20px;
+        }
+
+        .internet-caution-sub {
+            font-size: 14px;
+        }
+
+        .internet-caution-card h4 {
+            font-size: 18px;
+        }
+
+        .internet-caution-card p {
+            font-size: 13px;
+        }
+    }
+
     </style>
 </head>
 <body>
@@ -1168,8 +1379,8 @@ function gtag_report_conversion(url) {
     <!-- 헤더 -->
 <header>
     <div class="container d-flex justify-content-between align-items-center">
-        <a href="/internet/" class="logo-img-link">
-            <img src="https://life-helper.co.kr/internet/logo.webp" alt="인터넷 올딜 로고" class="site-logo-img">
+        <a href="https://life-helper.co.kr" class="logo-img-link">
+            <img src="logo.webp" alt="인터넷 올딜 로고" class="site-logo-img">
         </a>
 
         <span class="badge bg-primary text-white px-3 py-2 fw-bold rounded-pill">
@@ -1179,11 +1390,14 @@ function gtag_report_conversion(url) {
 </header>
 
 <div class="header-banner-gif">
-    <video autoplay muted loop playsinline><source src="https://life-helper.co.kr/internet/banner.mp4" type="video/mp4"></video>
+    <video autoplay muted loop playsinline><source src="banner.mp4" type="video/mp4"></video>
 </div>
 
 
-    <!-- 메인 비주얼 섹션 -->
+    
+
+
+<!-- 메인 비주얼 섹션 -->
     <section class="hero-section">
         <div class="container">
             <div class="row align-items-center">
@@ -1222,7 +1436,7 @@ function gtag_report_conversion(url) {
                     <div class="limiter-box text-start">
                         <div class="limiter-dot"></div>
                         <div class="limiter-text fw-bold" style="font-size: 1.15rem; letter-spacing: -0.04em;">
-                            하루 딱 30명 한정! 서울 마진 0원 혜택 잔여: <span class="font-title">오늘 단 8명!</span>
+                            하루 딱 30명 한정! 마진 0원 혜택</span>
                         </div>
                     </div>
 
@@ -1264,6 +1478,384 @@ function gtag_report_conversion(url) {
             </div>
         </div>
     </section>
+
+
+<section class="review-section" aria-label="인터넷 올딜 고객 후기">
+    <div class="second-banner-section">
+        <video autoplay muted loop playsinline><source src="image/banner-2.mp4" type="video/mp4"></video>
+    </div>
+
+    <div class="review-rating-title">
+        <span class="stars">★★★★★</span>
+        실제 이용 고객 후기 · 별점 <span class="score">5.0</span>
+    </div>
+
+    <div class="review-carousel">
+        <div class="review-track">
+                
+                <article class="review-card">
+                    <img src="image/hoogi-1.webp" alt="인터넷 올딜 이용 후기 1">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"다른 곳보다 상담 조건이 좋아서 바로 신청했어요. 사은품 설명도 깔끔해서 만족했습니다."</p>
+                    <div class="review-name">정우* · 서울 강남구</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-2.webp" alt="인터넷 올딜 이용 후기 2">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"여러 군데 비교했는데 현금 조건이 제일 괜찮았어요. 설치 일정도 빠르게 잡혔습니다."</p>
+                    <div class="review-name">민서* · 경기 수원시</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-3.webp" alt="인터넷 올딜 이용 후기 3">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"인터넷 바꾸면서 사은품을 생각보다 많이 받아서 기분 좋았어요."</p>
+                    <div class="review-name">지훈* · 인천 연수구</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-4.webp" alt="인터넷 올딜 이용 후기 4">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"처음엔 반신반의했는데 상담받아보니 조건이 확실히 좋더라구요."</p>
+                    <div class="review-name">서윤* · 부산 해운대구</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-5.webp" alt="인터넷 올딜 이용 후기 5">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"타 사이트에서 들은 조건보다 더 좋아서 여기서 진행했습니다."</p>
+                    <div class="review-name">현우* · 대구 수성구</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-6.webp" alt="인터넷 올딜 이용 후기 6">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"현금 지원 조건이 마음에 들었고, 상담도 과하게 밀어붙이지 않아서 좋았어요."</p>
+                    <div class="review-name">예진* · 대전 유성구</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-7.webp" alt="인터넷 올딜 이용 후기 7">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"사은품이랑 월요금까지 같이 비교해줘서 결정하기 쉬웠습니다."</p>
+                    <div class="review-name">도윤* · 광주 북구</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-8.webp" alt="인터넷 올딜 이용 후기 8">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"기존에 알아본 곳보다 조건이 좋아서 가족들도 여기서 하자고 했어요."</p>
+                    <div class="review-name">수빈* · 경기 고양시</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-9.webp" alt="인터넷 올딜 이용 후기 9">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"현금 혜택을 정확히 설명해줘서 믿고 신청했습니다. 진행도 빨랐어요."</p>
+                    <div class="review-name">태민* · 서울 마포구</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-10.webp" alt="인터넷 올딜 이용 후기 10">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"인터넷 가입하면서 받을 수 있는 혜택을 한 번에 정리해줘서 편했습니다."</p>
+                    <div class="review-name">하은* · 울산 남구</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-11.webp" alt="인터넷 올딜 이용 후기 11">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"사은품 지급 조건을 자세히 알려줘서 헷갈리지 않았어요."</p>
+                    <div class="review-name">준호* · 경기 용인시</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-12.webp" alt="인터넷 올딜 이용 후기 12">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"다른 곳보다 상담 조건이 좋고 안내도 친절해서 바로 신청했습니다."</p>
+                    <div class="review-name">지아* · 서울 송파구</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-13.webp" alt="인터넷 올딜 이용 후기 13">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"현금 많이 받을 수 있는 조건을 찾아줘서 만족도가 높았습니다."</p>
+                    <div class="review-name">민재* · 부산 동래구</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-14.webp" alt="인터넷 올딜 이용 후기 14">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"요금제랑 사은품 조건을 같이 비교하니까 차이가 확실히 보였어요."</p>
+                    <div class="review-name">서준* · 인천 부평구</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-15.webp" alt="인터넷 올딜 이용 후기 15">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"혜택만 크게 말하는 곳보다 여기는 조건을 자세히 설명해줘서 좋았습니다."</p>
+                    <div class="review-name">유나* · 경기 성남시</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-16.webp" alt="인터넷 올딜 이용 후기 16">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"설치 후 받을 수 있는 혜택까지 미리 알려줘서 안심하고 진행했어요."</p>
+                    <div class="review-name">현지* · 대구 달서구</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-17.webp" alt="인터넷 올딜 이용 후기 17">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"다른 업체 견적보다 조건이 좋아서 고민 없이 신청했습니다."</p>
+                    <div class="review-name">건우* · 충남 천안시</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-18.webp" alt="인터넷 올딜 이용 후기 18">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"현금 조건이 괜찮았고, 추가 상품 강요가 없어서 만족했습니다."</p>
+                    <div class="review-name">소율* · 전북 전주시</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-19.webp" alt="인터넷 올딜 이용 후기 19">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"사은품 내용이 복잡할 줄 알았는데 상담받고 나니 깔끔하게 정리됐어요."</p>
+                    <div class="review-name">시우* · 서울 은평구</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-20.webp" alt="인터넷 올딜 이용 후기 20">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"혜택이 좋은 상품 위주로 비교해줘서 시간 아끼고 신청했습니다."</p>
+                    <div class="review-name">나은* · 경남 창원시</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-21.webp" alt="인터넷 올딜 이용 후기 21">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"인터넷 속도 선택 때문에 고민했는데 사용 패턴에 맞춰 추천해줘서 좋았어요."</p>
+                    <div class="review-name">민호* · 경기 안양시</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-22.webp" alt="인터넷 올딜 이용 후기 22">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"설치 가능 날짜까지 바로 확인해줘서 이사 일정에 맞추기 쉬웠습니다."</p>
+                    <div class="review-name">지민* · 대전 서구</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-23.webp" alt="인터넷 올딜 이용 후기 23">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"가족 결합까지 같이 봐줘서 월 요금이 어떻게 달라지는지 이해됐습니다."</p>
+                    <div class="review-name">유진* · 서울 강서구</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-24.webp" alt="인터넷 올딜 이용 후기 24">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"처음 신청해보는 거라 걱정했는데 안내가 자세해서 어렵지 않았어요."</p>
+                    <div class="review-name">도현* · 부산 수영구</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-25.webp" alt="인터넷 올딜 이용 후기 25">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"상담받고 나니 통신사별 장단점이 정리돼서 선택이 쉬웠어요."</p>
+                    <div class="review-name">채원* · 경기 부천시</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-26.webp" alt="인터넷 올딜 이용 후기 26">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"약정 기간과 설치비까지 같이 설명해줘서 나중에 헷갈릴 일이 없었어요."</p>
+                    <div class="review-name">승민* · 인천 서구</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-27.webp" alt="인터넷 올딜 이용 후기 27">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"집에서 쓰는 기기 수를 말하니 속도 선택을 쉽게 정리해줬습니다."</p>
+                    <div class="review-name">예서* · 세종시</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-28.webp" alt="인터넷 올딜 이용 후기 28">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"신청부터 설치 안내까지 흐름이 깔끔해서 번거롭지 않았어요."</p>
+                    <div class="review-name">주원* · 충북 청주시</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-29.webp" alt="인터넷 올딜 이용 후기 29">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"TV 채널 구성까지 같이 봐줘서 가족들이 쓰기에 맞게 선택했습니다."</p>
+                    <div class="review-name">서현* · 제주 제주시</div>
+                </article>
+                <article class="review-card">
+                    <img src="image/hoogi-30.webp" alt="인터넷 올딜 이용 후기 30">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"문의 남기고 빠르게 안내받았고, 조건 비교도 깔끔했습니다."</p>
+                    <div class="review-name">하준* · 강원 원주시</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-1.webp" alt="인터넷 올딜 이용 후기 1">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"다른 곳보다 상담 조건이 좋아서 바로 신청했어요. 사은품 설명도 깔끔해서 만족했습니다."</p>
+                    <div class="review-name">정우* · 서울 강남구</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-2.webp" alt="인터넷 올딜 이용 후기 2">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"여러 군데 비교했는데 현금 조건이 제일 괜찮았어요. 설치 일정도 빠르게 잡혔습니다."</p>
+                    <div class="review-name">민서* · 경기 수원시</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-3.webp" alt="인터넷 올딜 이용 후기 3">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"인터넷 바꾸면서 사은품을 생각보다 많이 받아서 기분 좋았어요."</p>
+                    <div class="review-name">지훈* · 인천 연수구</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-4.webp" alt="인터넷 올딜 이용 후기 4">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"처음엔 반신반의했는데 상담받아보니 조건이 확실히 좋더라구요."</p>
+                    <div class="review-name">서윤* · 부산 해운대구</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-5.webp" alt="인터넷 올딜 이용 후기 5">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"타 사이트에서 들은 조건보다 더 좋아서 여기서 진행했습니다."</p>
+                    <div class="review-name">현우* · 대구 수성구</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-6.webp" alt="인터넷 올딜 이용 후기 6">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"현금 지원 조건이 마음에 들었고, 상담도 과하게 밀어붙이지 않아서 좋았어요."</p>
+                    <div class="review-name">예진* · 대전 유성구</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-7.webp" alt="인터넷 올딜 이용 후기 7">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"사은품이랑 월요금까지 같이 비교해줘서 결정하기 쉬웠습니다."</p>
+                    <div class="review-name">도윤* · 광주 북구</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-8.webp" alt="인터넷 올딜 이용 후기 8">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"기존에 알아본 곳보다 조건이 좋아서 가족들도 여기서 하자고 했어요."</p>
+                    <div class="review-name">수빈* · 경기 고양시</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-9.webp" alt="인터넷 올딜 이용 후기 9">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"현금 혜택을 정확히 설명해줘서 믿고 신청했습니다. 진행도 빨랐어요."</p>
+                    <div class="review-name">태민* · 서울 마포구</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-10.webp" alt="인터넷 올딜 이용 후기 10">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"인터넷 가입하면서 받을 수 있는 혜택을 한 번에 정리해줘서 편했습니다."</p>
+                    <div class="review-name">하은* · 울산 남구</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-11.webp" alt="인터넷 올딜 이용 후기 11">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"사은품 지급 조건을 자세히 알려줘서 헷갈리지 않았어요."</p>
+                    <div class="review-name">준호* · 경기 용인시</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-12.webp" alt="인터넷 올딜 이용 후기 12">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"다른 곳보다 상담 조건이 좋고 안내도 친절해서 바로 신청했습니다."</p>
+                    <div class="review-name">지아* · 서울 송파구</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-13.webp" alt="인터넷 올딜 이용 후기 13">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"현금 많이 받을 수 있는 조건을 찾아줘서 만족도가 높았습니다."</p>
+                    <div class="review-name">민재* · 부산 동래구</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-14.webp" alt="인터넷 올딜 이용 후기 14">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"요금제랑 사은품 조건을 같이 비교하니까 차이가 확실히 보였어요."</p>
+                    <div class="review-name">서준* · 인천 부평구</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-15.webp" alt="인터넷 올딜 이용 후기 15">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"혜택만 크게 말하는 곳보다 여기는 조건을 자세히 설명해줘서 좋았습니다."</p>
+                    <div class="review-name">유나* · 경기 성남시</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-16.webp" alt="인터넷 올딜 이용 후기 16">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"설치 후 받을 수 있는 혜택까지 미리 알려줘서 안심하고 진행했어요."</p>
+                    <div class="review-name">현지* · 대구 달서구</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-17.webp" alt="인터넷 올딜 이용 후기 17">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"다른 업체 견적보다 조건이 좋아서 고민 없이 신청했습니다."</p>
+                    <div class="review-name">건우* · 충남 천안시</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-18.webp" alt="인터넷 올딜 이용 후기 18">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"현금 조건이 괜찮았고, 추가 상품 강요가 없어서 만족했습니다."</p>
+                    <div class="review-name">소율* · 전북 전주시</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-19.webp" alt="인터넷 올딜 이용 후기 19">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"사은품 내용이 복잡할 줄 알았는데 상담받고 나니 깔끔하게 정리됐어요."</p>
+                    <div class="review-name">시우* · 서울 은평구</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-20.webp" alt="인터넷 올딜 이용 후기 20">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"혜택이 좋은 상품 위주로 비교해줘서 시간 아끼고 신청했습니다."</p>
+                    <div class="review-name">나은* · 경남 창원시</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-21.webp" alt="인터넷 올딜 이용 후기 21">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"인터넷 속도 선택 때문에 고민했는데 사용 패턴에 맞춰 추천해줘서 좋았어요."</p>
+                    <div class="review-name">민호* · 경기 안양시</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-22.webp" alt="인터넷 올딜 이용 후기 22">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"설치 가능 날짜까지 바로 확인해줘서 이사 일정에 맞추기 쉬웠습니다."</p>
+                    <div class="review-name">지민* · 대전 서구</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-23.webp" alt="인터넷 올딜 이용 후기 23">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"가족 결합까지 같이 봐줘서 월 요금이 어떻게 달라지는지 이해됐습니다."</p>
+                    <div class="review-name">유진* · 서울 강서구</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-24.webp" alt="인터넷 올딜 이용 후기 24">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"처음 신청해보는 거라 걱정했는데 안내가 자세해서 어렵지 않았어요."</p>
+                    <div class="review-name">도현* · 부산 수영구</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-25.webp" alt="인터넷 올딜 이용 후기 25">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"상담받고 나니 통신사별 장단점이 정리돼서 선택이 쉬웠어요."</p>
+                    <div class="review-name">채원* · 경기 부천시</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-26.webp" alt="인터넷 올딜 이용 후기 26">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"약정 기간과 설치비까지 같이 설명해줘서 나중에 헷갈릴 일이 없었어요."</p>
+                    <div class="review-name">승민* · 인천 서구</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-27.webp" alt="인터넷 올딜 이용 후기 27">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"집에서 쓰는 기기 수를 말하니 속도 선택을 쉽게 정리해줬습니다."</p>
+                    <div class="review-name">예서* · 세종시</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-28.webp" alt="인터넷 올딜 이용 후기 28">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"신청부터 설치 안내까지 흐름이 깔끔해서 번거롭지 않았어요."</p>
+                    <div class="review-name">주원* · 충북 청주시</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-29.webp" alt="인터넷 올딜 이용 후기 29">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"TV 채널 구성까지 같이 봐줘서 가족들이 쓰기에 맞게 선택했습니다."</p>
+                    <div class="review-name">서현* · 제주 제주시</div>
+                </article>
+                <article class="review-card" aria-hidden="true">
+                    <img src="image/hoogi-30.webp" alt="인터넷 올딜 이용 후기 30">
+                    <div class="review-stars">★★★★★</div>
+                    <p>"문의 남기고 빠르게 안내받았고, 조건 비교도 깔끔했습니다."</p>
+                    <div class="review-name">하준* · 강원 원주시</div>
+                </article>
+        </div>
+    </div>
+</section>
 
     <!-- 요금 안내 섹션 -->
     <section class="price-section">
@@ -1325,6 +1917,128 @@ function gtag_report_conversion(url) {
                     위 양식에 간단히 신청을 남겨주시면 고객님께 딱 맞는 맞춤형 최저 요금을 컨설팅해 드립니다!
                 </p>
             </div>
+
+            <!-- 인터넷가입 주의점 박스 시작 -->
+            <div class="internet-caution-wrap">
+                <div class="internet-caution-head">
+                    <div class="internet-caution-main-image">
+                        <img src="image/internet-caution-main.webp" alt="인터넷 가입시 유의사항">
+                    </div>
+                    <span class="internet-caution-kicker">가입 전 꼭 체크</span>
+                    <h3 class="internet-caution-title font-title">
+                        인터넷가입, 혜택만 보지 말고<br>
+                        이 6가지는 꼭 확인하세요
+                    </h3>
+                    <p class="internet-caution-sub">
+                        현금 많이 준다는 말만 듣고 덜컥 신청했다가 뒤늦게 아차 싶으면 속상하잖아요.<br>
+                        아래 내용만 미리 체크해도 불필요한 지출과 가입 실수를 크게 줄일 수 있습니다.
+                    </p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="internet-caution-card">
+                            <div class="internet-caution-thumb">
+                                <img src="image/internet-tip-1.webp" alt="현금지원 조건 확인">
+                                <span class="internet-caution-badge">01</span>
+                            </div>
+                            <div class="internet-caution-body">
+                                <h4 class="font-title">현금지원 금액만 보고<br>바로 결정하지 않기</h4>
+                                <p>
+                                    혜택 금액이 커 보여도 <span class="point-text">언제 지급되는지, 어떤 조건에서 지급되는지</span>
+                                    꼭 같이 봐야 합니다. 설치 완료 기준인지, 개통 후 지급인지까지 확인해야
+                                    기분 좋게 받고 끝낼 수 있어요.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="internet-caution-card">
+                            <div class="internet-caution-thumb">
+                                <img src="image/internet-tip-2.webp" alt="월요금과 사은품 비교">
+                                <span class="internet-caution-badge">02</span>
+                            </div>
+                            <div class="internet-caution-body">
+                                <h4 class="font-title">월요금과 사은품을<br>반드시 같이 비교하기</h4>
+                                <p>
+                                    사은품이 많아 보여도 월요금이 높으면 3년 약정 동안 총지출이 더 커질 수 있습니다.
+                                    그래서 <span class="point-text">한 번 받을 혜택</span>만 보지 말고
+                                    <span class="point-text">매달 나가는 요금</span>까지 함께 비교하는 게 중요합니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="internet-caution-card">
+                            <div class="internet-caution-thumb">
+                                <img src="image/internet-tip-3.webp" alt="휴대폰 결합할인 확인">
+                                <span class="internet-caution-badge">03</span>
+                            </div>
+                            <div class="internet-caution-body">
+                                <h4 class="font-title">휴대폰 결합할인부터<br>먼저 확인하기</h4>
+                                <p>
+                                    같은 인터넷이라도 휴대폰 결합 여부에 따라 체감 요금이 확 달라질 수 있습니다.
+                                    본인 회선뿐 아니라 <span class="point-text">가족 회선 수와 통신사</span>까지 같이 보면
+                                    생각보다 큰 할인 차이가 생길 수 있어요.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="internet-caution-card">
+                            <div class="internet-caution-thumb">
+                                <img src="image/internet-tip-4.webp" alt="인터넷 속도 선택">
+                                <span class="internet-caution-badge">04</span>
+                            </div>
+                            <div class="internet-caution-body">
+                                <h4 class="font-title">인터넷 속도는 무조건<br>빠른 게 정답은 아닙니다</h4>
+                                <p>
+                                    혼자 가볍게 쓰는 집과 게임, OTT, 재택근무를 함께 쓰는 집은 필요한 속도가 다릅니다.
+                                    <span class="point-text">100메가, 500메가, 1기가</span> 중에서
+                                    사용 패턴에 맞게 고르는 게 더 똑똑한 선택이에요.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="internet-caution-card">
+                            <div class="internet-caution-thumb">
+                                <img src="image/internet-tip-5.webp" alt="설치비와 약정기간 확인">
+                                <span class="internet-caution-badge">05</span>
+                            </div>
+                            <div class="internet-caution-body">
+                                <h4 class="font-title">설치비, 장비임대료,<br>약정기간까지 확인하기</h4>
+                                <p>
+                                    월요금만 보고 신청했다가 설치비나 셋톱박스 임대료, 약정기간 때문에 놀라는 경우도 있습니다.
+                                    가입 전에는 <span class="point-text">총 비용 구조</span>를 한 번에 확인해두는 게 가장 안전합니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="internet-caution-card">
+                            <div class="internet-caution-thumb">
+                                <img src="image/internet-tip-6.webp" alt="기존 인터넷 해지 타이밍">
+                                <span class="internet-caution-badge">06</span>
+                            </div>
+                            <div class="internet-caution-body">
+                                <h4 class="font-title">기존 인터넷은<br>해지 타이밍을 조심하기</h4>
+                                <p>
+                                    새 인터넷 설치 전에 기존 회선을 먼저 해지하면 며칠 동안 인터넷이 끊길 수도 있습니다.
+                                    특히 이사나 재택근무가 있다면 <span class="point-text">새 회선 설치 후 기존 회선 정리</span>가 훨씬 안전합니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 인터넷가입 주의점 박스 끝 -->
+
             
         </div>
     </section>
@@ -1333,7 +2047,7 @@ function gtag_report_conversion(url) {
     <section class="benefit-section">
         <div class="container">
             <h2 class="section-title text-center font-title">
-                많은 고객이 <span>인터넷 올딜</span>을 선택하는<br>서울 고객을 위한 6가지 약속
+                많은 고객이 <span>인터넷 올딜</span>을 선택하는 6가지 약속
             </h2>
             <div class="row g-4 mt-2">
                 <!-- 1. 오늘만, 최대 사은품 입금보장 -->
@@ -1349,7 +2063,7 @@ function gtag_report_conversion(url) {
                                 <path d="M11 11L12 12L13.5 10" stroke="#D97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </div>
-                        <h4 class="font-title">서울 인터넷가입 최대 사은품<br>입금보장!! 단, 오늘만!!</h4>
+                        <h4 class="font-title">인터넷가입 최대 사은품<br>입금보장!! 단, 오늘만!!</h4>
                         <p>망설이면 손해! 당일 가이드라인 기준 챙겨받으실 수 있는 법적 테두리 안 최대로 푸짐한 혜택을 정직하고 완벽하게 지급해 드립니다.</p>
                     </div>
                 </div>
@@ -1441,19 +2155,6 @@ function gtag_report_conversion(url) {
             </div>
         </div>
     </section>
-    <!-- SEO 본문 블록 -->
-    <div style="font-family: 'Single Day', cursive; font-size: 0.78rem; text-align: center; color: #64748b; line-height: 1.3; padding: 36px 20px 28px; background: #f8fafc; letter-spacing: -0.01em;">
-        <p style="margin:0 0 5px; font-size:0.85rem; font-weight:bold; color:#475569;">서울 인터넷 가입 사은품 현금 많이 주는곳 비밀지원금 혜택비교</p>
-        <p style="margin:0 0 4px;">서울에서 인터넷을 새로 가입하거나 통신사를 변경하려는 분들께, 일반 대리점에서는 절대 알려주지 않는 본사 직영급 비밀지원금 혜택을 꼼꼼히 비교해드립니다.</p>
-        <p style="margin:0 0 4px;">SK브로드밴드·KT·LG U+ 3사 중 어느 통신사를 선택하더라도, 서울 인터넷 가입 현금 사은품을 최대한 많이 받으실 수 있는 단독 조건을 안내해 드립니다.</p>
-        <p style="margin:0 0 4px;">서울 인터넷가입 혜택비교는 직접 발품을 팔지 않아도 됩니다. 현금 지급 조건은 가입 경로마다 천차만별이기 때문에, 어디서 신청하느냐에 따라 수십만 원의 차이가 납니다.</p>
-        <p style="margin:0 0 4px;">인터넷 올딜은 중간 유통 마진 0원 구조로 운영되어, 대리점 수수료 없이 고객에게 직접 현금을 돌려드리는 방식입니다. 서울 전 지역 인터넷 설치 가능하며 당일 현금 입금 처리를 원칙으로 합니다.</p>
-        <p style="margin:0 0 4px;">서울 인터넷 가입 비밀지원금은 공개된 약정 할인 외에 별도로 지급되는 현금성 혜택입니다. 가입 채널에 따라 지급 가능 여부와 금액이 달라지므로, 반드시 혜택비교 후 신청하시는 것을 권장합니다.</p>
-        <p style="margin:0 0 4px;">서울 인터넷가입 현금 사은품을 당일 지급해주는 곳인지, TV 사은품이 함께 포함되는지, 기가인터넷 요금제 적용이 가능한지, 설치 후 언제 입금되는지 꼼꼼히 확인하는 것이 중요합니다.</p>
-        <p style="margin:0 0 4px;">통신사 약정이 만료된 분, 이사 후 서울 인터넷 신규 설치가 필요한 분, 현재 요금이 너무 높아 통신사 변경을 고민 중인 분 모두 인터넷 올딜 무료 상담을 통해 최적의 조건을 받아보실 수 있습니다.</p>
-        <p style="margin:0;">서울 인터넷가입을 고민 중이시라면, 지금 바로 30초 무료 상담을 신청해 현금 사은품을 가장 많이 주는곳과 비밀지원금 혜택을 한눈에 비교해보세요.</p>
-    </div>
-
     <!-- 푸터 -->
     <footer>
         <div class="container text-center text-md-start">
@@ -1556,12 +2257,12 @@ function gtag_report_conversion(url) {
         });
     </script>
     <footer class="bottom-keyword-text">
-        <p>서울 통신사 약정만료 신규 인터넷 가입 및 변경</p>
-        <p>서울 현금 지급 사은품 비교</p>
-        <p>서울 당일 현금 지원금 및 TV(티비) 지원 혜택</p>
-        <p>서울 통신사변경 환급 많이주는곳 갈아타기</p>
+        <p>통신사 약정만료 신규 인터넷 가입 및 변경</p>
+        <p>현금 지급 사은품 비교</p>
+        <p>당일 현금 지원금 및 TV(티비) 지원 혜택</p>
+        <p>통신사변경 환급 많이주는곳 갈아타기</p>
     </footer>
 
-    <a href="#co10Frm" class="fixed-consult-btn">서울 인터넷 상담신청 바로가기 →</a>
+    <a href="#co10Frm" class="fixed-consult-btn">상담신청 바로가기 →</a>
 </body>
 </html>
