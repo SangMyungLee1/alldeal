@@ -606,14 +606,9 @@ function gtag_report_conversion(url) {
     </style>
   <link rel="alternate" type="application/rss+xml" title="올딜 생활정보 RSS" href="https://life-helper.co.kr/rss.xml">
 
-<style id="mp4-display-fix">
-  video.gif-mp4-video,
+<style id="pojang-video-webp-fix">
   .header-banner-gif video,
-  .price-banner-gif video,
-  .second-banner-section video,
-  .hero-image-card video,
-  .image-box video,
-  video.article-image {
+  .price-banner-gif video {
     display: block !important;
     width: 100% !important;
     max-width: 100% !important;
@@ -621,33 +616,27 @@ function gtag_report_conversion(url) {
     object-fit: contain !important;
   }
 
-  .hero-image-card video {
-    border-radius: inherit;
-  }
-
-  .header-banner-gif video,
-  .second-banner-section video {
+  .header-banner-gif video {
     border-radius: 28px;
-    border: 1px solid var(--border, #e2e8f0);
-    background: var(--card, #ffffff);
-    box-shadow: var(--shadow, 0 12px 30px rgba(15, 23, 42, .08));
+    border: 1px solid var(--border);
+    background: var(--card);
+    box-shadow: var(--shadow);
   }
 
   .price-banner-gif video {
     border-radius: inherit;
-    background: var(--card, #ffffff);
   }
 
-  .image-box video,
-  video.article-image {
-    margin: 0 auto;
+  .review-card img {
+    display: block !important;
+    width: 100% !important;
+    height: 110px !important;
+    object-fit: cover !important;
+    border-radius: 10px !important;
   }
 
-  @media (max-width: 768px) {
-    .header-banner-gif video,
-    .second-banner-section video {
-      border-radius: 20px;
-    }
+  @media(max-width:768px){
+    .header-banner-gif video { border-radius:20px; }
   }
 </style>
 
@@ -665,7 +654,7 @@ function gtag_report_conversion(url) {
     <header>
         <div class="container d-flex justify-content-between align-items-center">
             <a href="https://life-helper.co.kr" class="logo-img-link">
-                <img src="/pojang/logo.webp" alt="이사 올딜 로고" class="site-logo-img">
+                <img src="logo.webp" alt="이사 올딜 로고" class="site-logo-img">
             </a>
             <span class="badge bg-primary text-white px-3 py-2 fw-bold rounded-pill">
                 <i class="bi bi-lightning-fill"></i> 실시간 견적 1위
@@ -674,7 +663,7 @@ function gtag_report_conversion(url) {
     </header>
 
     <div class="header-banner-gif">
-        <video autoplay muted loop playsinline class="gif-mp4-video" preload="auto" poster="/pojang/images/pojangbanner-1-poster.webp"><source src="/pojang/images/pojangbanner-1.mp4" type="video/mp4"></video>
+        <video autoplay muted loop playsinline preload="auto"><source src="images/pojangbanner-1.mp4" type="video/mp4"></video>
     </div>
 
     <!-- 히어로 섹션 -->
@@ -753,7 +742,7 @@ function gtag_report_conversion(url) {
         <div class="container">
             <!-- 고객 후기 슬라이더 위 두번째 배너 -->
             <div class="price-banner-gif" style="margin-bottom:28px;">
-                <video autoplay muted loop playsinline class="gif-mp4-video" preload="auto" poster="/pojang/images/pojangbanner-2-poster.webp"><source src="/pojang/images/pojangbanner-2.mp4" type="video/mp4"></video>
+                <video autoplay muted loop playsinline preload="auto"><source src="images/pojangbanner-2.mp4" type="video/mp4"></video>
             </div>
 
             <!-- 고객 후기 슬라이더 -->
@@ -767,7 +756,7 @@ function gtag_report_conversion(url) {
                         <!-- 후기 30개 -->
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-1.webp" alt="고객후기1" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-1.webp" alt="고객후기1" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -777,7 +766,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-2.webp" alt="고객후기2" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-2.webp" alt="고객후기2" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -787,7 +776,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-3.webp" alt="고객후기3" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-3.webp" alt="고객후기3" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -797,7 +786,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-4.webp" alt="고객후기4" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-4.webp" alt="고객후기4" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -807,7 +796,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-5.webp" alt="고객후기5" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-5.webp" alt="고객후기5" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -817,7 +806,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-6.webp" alt="고객후기6" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-6.webp" alt="고객후기6" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -827,7 +816,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-7.webp" alt="고객후기7" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-7.webp" alt="고객후기7" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -837,7 +826,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-8.webp" alt="고객후기8" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-8.webp" alt="고객후기8" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -847,7 +836,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-9.webp" alt="고객후기9" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-9.webp" alt="고객후기9" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -857,7 +846,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-10.webp" alt="고객후기10" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-10.webp" alt="고객후기10" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -867,7 +856,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-11.webp" alt="고객후기11" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-11.webp" alt="고객후기11" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -877,7 +866,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-12.webp" alt="고객후기12" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-12.webp" alt="고객후기12" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -887,7 +876,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-13.webp" alt="고객후기13" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-13.webp" alt="고객후기13" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -897,7 +886,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-14.webp" alt="고객후기14" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-14.webp" alt="고객후기14" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -907,7 +896,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-15.webp" alt="고객후기15" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-15.webp" alt="고객후기15" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -917,7 +906,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-16.webp" alt="고객후기16" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-16.webp" alt="고객후기16" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -927,7 +916,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-17.webp" alt="고객후기17" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-17.webp" alt="고객후기17" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -937,7 +926,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-18.webp" alt="고객후기18" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-18.webp" alt="고객후기18" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -947,7 +936,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-19.webp" alt="고객후기19" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-19.webp" alt="고객후기19" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -957,7 +946,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-20.webp" alt="고객후기20" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-20.webp" alt="고객후기20" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -967,7 +956,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-21.webp" alt="고객후기21" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-21.webp" alt="고객후기21" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -977,7 +966,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-22.webp" alt="고객후기22" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-22.webp" alt="고객후기22" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -987,7 +976,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-23.webp" alt="고객후기23" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-23.webp" alt="고객후기23" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -997,7 +986,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-24.webp" alt="고객후기24" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-24.webp" alt="고객후기24" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -1007,7 +996,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-25.webp" alt="고객후기25" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-25.webp" alt="고객후기25" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -1017,7 +1006,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-26.webp" alt="고객후기26" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-26.webp" alt="고객후기26" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -1027,7 +1016,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-27.webp" alt="고객후기27" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-27.webp" alt="고객후기27" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -1037,7 +1026,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-28.webp" alt="고객후기28" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-28.webp" alt="고객후기28" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -1047,7 +1036,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-29.webp" alt="고객후기29" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-29.webp" alt="고객후기29" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -1057,7 +1046,7 @@ function gtag_report_conversion(url) {
 
                         <div class="review-card">
                             <div class="review-photo-wrap">
-                                <img src="/pojang/images/hoogi-30.webp" alt="고객후기30" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
+                                <img src="images/hoogi-30.webp" alt="고객후기30" style="width:100%;height:110px;object-fit:cover;display:block;border-radius:10px;">
                                 <div class="review-photo-noise"></div>
                             </div>
                             <div class="review-stars">★★★★★</div>
@@ -1387,5 +1376,22 @@ function gtag_report_conversion(url) {
     </footer>
 
     <a href="#co10Frm" class="fixed-consult-btn">포장이사 무료 견적 상담 바로가기 →</a>
+
+<script id="pojang-video-autoplay-fix">
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('video').forEach(function (video) {
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+      var tryPlay = function () {
+        var p = video.play();
+        if (p && typeof p.catch === 'function') { p.catch(function () {}); }
+      };
+      if (video.readyState >= 2) tryPlay();
+      video.addEventListener('canplay', tryPlay, { once: true });
+    });
+  });
+</script>
+
 </body>
 </html>
