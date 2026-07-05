@@ -656,7 +656,7 @@ function gtag_report_conversion(url) {
     </header>
 
     <div class="header-banner-gif">
-        <video autoplay muted loop playsinline preload="auto"><source src="/pojang/images/pojangbanner-1.mp4" type="video/mp4"></video>
+        <video autoplay muted loop playsinline preload="auto"><source src="/pojang/images/pojangbanner-1.mp4?v=84s-20260705" type="video/mp4"></video>
     </div>
 
     <!-- 히어로 섹션 -->
@@ -735,7 +735,7 @@ function gtag_report_conversion(url) {
         <div class="container">
             <!-- 고객 후기 슬라이더 위 두번째 배너 -->
             <div class="price-banner-gif" style="margin-bottom:28px;">
-                <video autoplay muted loop playsinline preload="auto"><source src="/pojang/images/pojangbanner-2.mp4" type="video/mp4"></video>
+                <video autoplay muted loop playsinline preload="auto"><source src="/pojang/images/pojangbanner-2.mp4?v=84s-20260705" type="video/mp4"></video>
             </div>
 
             <!-- 고객 후기 슬라이더 -->
@@ -1376,6 +1376,7 @@ function gtag_report_conversion(url) {
       video.muted = true;
       video.loop = true;
       video.playsInline = true;
+      video.playbackRate = 1;
       var playVideo = function () {
         var p = video.play();
         if (p && typeof p.catch === 'function') { p.catch(function () {}); }
