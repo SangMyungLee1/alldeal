@@ -167,6 +167,52 @@
       .fixed-bottom-link a { font-size: 15px; }
     }
   </style>
+
+<style id="mp4-display-fix">
+  video.gif-mp4-video,
+  .header-banner-gif video,
+  .price-banner-gif video,
+  .second-banner-section video,
+  .hero-image-card video,
+  .image-box video,
+  video.article-image {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+
+  .hero-image-card video {
+    border-radius: inherit;
+  }
+
+  .header-banner-gif video,
+  .second-banner-section video {
+    border-radius: 28px;
+    border: 1px solid var(--border, #e2e8f0);
+    background: var(--card, #ffffff);
+    box-shadow: var(--shadow, 0 12px 30px rgba(15, 23, 42, .08));
+  }
+
+  .price-banner-gif video {
+    border-radius: inherit;
+    background: var(--card, #ffffff);
+  }
+
+  .image-box video,
+  video.article-image {
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .header-banner-gif video,
+    .second-banner-section video {
+      border-radius: 20px;
+    }
+  }
+</style>
+
 </head>
 <body>
   <main class="page-wrap">
@@ -184,7 +230,7 @@
 
       <!-- 이미지 위치 1: 정관 인터넷가입 혜택 또는 상담 분위기에 맞는 이미지를 넣으세요. 파일명은 나중에 수정 가능합니다. -->
       <figure class="image-box">
-        <video class="article-image" autoplay muted loop playsinline><source src="jeonggwan_internet_01.mp4" type="video/mp4"></video>
+        <video class="article-image gif-mp4-video" autoplay muted loop playsinline preload="auto" poster="jeonggwan_internet_01-poster.webp"><source src="jeonggwan_internet_01.mp4" type="video/mp4"></video>
         <figcaption class="image-caption">이미지 위치 1 · 정관 인터넷가입 현금 사은품 안내 이미지</figcaption>
       </figure>
 
@@ -207,7 +253,7 @@
 
       <!-- 이미지 위치 2: 통신사 비교, TV 결합, 사은품 안내에 어울리는 이미지를 넣으세요. 파일명은 나중에 수정 가능합니다. -->
       <figure class="image-box">
-        <video class="article-image" autoplay muted loop playsinline><source src="jeonggwan_internet_02.mp4" type="video/mp4"></video>
+        <video class="article-image gif-mp4-video" autoplay muted loop playsinline preload="auto" poster="jeonggwan_internet_02-poster.webp"><source src="jeonggwan_internet_02.mp4" type="video/mp4"></video>
         <figcaption class="image-caption">이미지 위치 2 · 인터넷변경, 사은품TV, 혜택비교 안내 이미지</figcaption>
       </figure>
 

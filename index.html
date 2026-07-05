@@ -825,6 +825,52 @@
   </script>
   <!-- End Danggeun Market Code -->
   <link rel="alternate" type="application/rss+xml" title="올딜 생활정보 RSS" href="https://life-helper.co.kr/rss.xml">
+
+<style id="mp4-display-fix">
+  video.gif-mp4-video,
+  .header-banner-gif video,
+  .price-banner-gif video,
+  .second-banner-section video,
+  .hero-image-card video,
+  .image-box video,
+  video.article-image {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+
+  .hero-image-card video {
+    border-radius: inherit;
+  }
+
+  .header-banner-gif video,
+  .second-banner-section video {
+    border-radius: 28px;
+    border: 1px solid var(--border, #e2e8f0);
+    background: var(--card, #ffffff);
+    box-shadow: var(--shadow, 0 12px 30px rgba(15, 23, 42, .08));
+  }
+
+  .price-banner-gif video {
+    border-radius: inherit;
+    background: var(--card, #ffffff);
+  }
+
+  .image-box video,
+  video.article-image {
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .header-banner-gif video,
+    .second-banner-section video {
+      border-radius: 20px;
+    }
+  }
+</style>
+
 </head>
 <body>
   <div class="notice-bar">생활에 필요한 가입·상담 서비스를 올딜에서 한 번에 비교하세요</div>
@@ -865,7 +911,7 @@
           </ul>
         </div>
         <div class="hero-image-card">
-          <video autoplay muted loop playsinline><source src="images/banner.mp4" type="video/mp4"></video>
+          <video autoplay muted loop playsinline class="gif-mp4-video" preload="auto" poster="images/banner-poster.webp"><source src="images/banner.mp4" type="video/mp4"></video>
         </div>
       </div>
     </section>
