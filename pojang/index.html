@@ -631,6 +631,45 @@ function gtag_report_conversion(url) {
   @media(max-width:768px){
     .header-banner-gif video { border-radius:20px; }
   }
+
+
+/* 방문자수 표시 영역 */
+.visitor-counter {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2px;
+  min-width: 104px;
+  padding: 7px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(65, 105, 225, 0.22);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+  color: #1e293b;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.visitor-counter span {
+  color: #4169e1;
+  font-weight: 950;
+}
+@media (max-width: 768px) {
+  .visitor-counter {
+    min-width: 86px;
+    padding: 5px 8px;
+    font-size: 10.5px;
+    border-radius: 12px;
+  }
+  header .badge {
+    font-size: 11px !important;
+    padding: 7px 9px !important;
+  }
+}
+
 </style>
 
 </head>
@@ -649,6 +688,10 @@ function gtag_report_conversion(url) {
             <a href="https://life-helper.co.kr" class="logo-img-link">
                 <img src="/pojang/logo.webp" alt="이사 올딜 로고" class="site-logo-img">
             </a>
+      <div class="visitor-counter" aria-label="방문자 수">
+        <div>Total : <span id="totalVisitor">0</span></div>
+        <div>Today : <span id="todayVisitor">0</span></div>
+      </div>
             <span class="badge bg-primary text-white px-3 py-2 fw-bold rounded-pill">
                 <i class="bi bi-lightning-fill"></i> 실시간 견적 1위
             </span>
@@ -1385,6 +1428,63 @@ function gtag_report_conversion(url) {
       video.addEventListener('canplay', playVideo, { once: true });
     });
   });
+</script>
+
+
+
+<script id="oldeal-visitor-counter-script">
+(function () {
+  const todayEl = document.getElementById("todayVisitor");
+  const totalEl = document.getElementById("totalVisitor");
+  if (!todayEl || !totalEl) return;
+
+  const storagePrefix = "oldeal_visitor_counter_";
+
+  function getTodayKey() {
+    const now = new Date();
+    const y = now.getFullYear();
+    const m = String(now.getMonth() + 1).padStart(2, "0");
+    const d = String(now.getDate()).padStart(2, "0");
+    return y + "-" + m + "-" + d;
+  }
+
+  function randomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function formatNumber(value) {
+    return Number(value).toLocaleString("ko-KR");
+  }
+
+  try {
+    const todayKey = getTodayKey();
+    const savedDate = localStorage.getItem(storagePrefix + "date");
+
+    let totalCount = parseInt(localStorage.getItem(storagePrefix + "total"), 10);
+    let todayCount = parseInt(localStorage.getItem(storagePrefix + "today"), 10);
+
+    if (!Number.isFinite(totalCount) || totalCount < 1) {
+      totalCount = randomInt(18200, 37600);
+    }
+
+    if (savedDate !== todayKey || !Number.isFinite(todayCount) || todayCount < 1) {
+      todayCount = randomInt(120, 480);
+      localStorage.setItem(storagePrefix + "date", todayKey);
+    }
+
+    totalCount += 1;
+    todayCount += 1;
+
+    localStorage.setItem(storagePrefix + "total", String(totalCount));
+    localStorage.setItem(storagePrefix + "today", String(todayCount));
+
+    totalEl.textContent = formatNumber(totalCount);
+    todayEl.textContent = formatNumber(todayCount);
+  } catch (error) {
+    totalEl.textContent = formatNumber(randomInt(18200, 37600));
+    todayEl.textContent = formatNumber(randomInt(120, 480));
+  }
+})();
 </script>
 
 </body>

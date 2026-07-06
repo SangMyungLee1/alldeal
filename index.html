@@ -816,7 +816,46 @@
         padding-bottom: 78px;
       }
     }
- 	 </style>
+ 	 
+
+/* 방문자수 표시 영역 */
+.visitor-counter {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2px;
+  min-width: 104px;
+  padding: 7px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(65, 105, 225, 0.22);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+  color: #1e293b;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.visitor-counter span {
+  color: #4169e1;
+  font-weight: 950;
+}
+@media (max-width: 768px) {
+  .visitor-counter {
+    min-width: 86px;
+    padding: 5px 8px;
+    font-size: 10.5px;
+    border-radius: 12px;
+  }
+  header .badge {
+    font-size: 11px !important;
+    padding: 7px 9px !important;
+  }
+}
+
+</style>
   <!-- Danggeun Market Code -->
   <script src="https://karrot-pixel.business.daangn.com/karrot-pixel.js"></script>
   <script>
@@ -825,52 +864,6 @@
   </script>
   <!-- End Danggeun Market Code -->
   <link rel="alternate" type="application/rss+xml" title="올딜 생활정보 RSS" href="https://life-helper.co.kr/rss.xml">
-
-<style id="mp4-display-fix">
-  video.gif-mp4-video,
-  .header-banner-gif video,
-  .price-banner-gif video,
-  .second-banner-section video,
-  .hero-image-card video,
-  .image-box video,
-  video.article-image {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    object-fit: contain !important;
-  }
-
-  .hero-image-card video {
-    border-radius: inherit;
-  }
-
-  .header-banner-gif video,
-  .second-banner-section video {
-    border-radius: 28px;
-    border: 1px solid var(--border, #e2e8f0);
-    background: var(--card, #ffffff);
-    box-shadow: var(--shadow, 0 12px 30px rgba(15, 23, 42, .08));
-  }
-
-  .price-banner-gif video {
-    border-radius: inherit;
-    background: var(--card, #ffffff);
-  }
-
-  .image-box video,
-  video.article-image {
-    margin: 0 auto;
-  }
-
-  @media (max-width: 768px) {
-    .header-banner-gif video,
-    .second-banner-section video {
-      border-radius: 20px;
-    }
-  }
-</style>
-
 </head>
 <body>
   <div class="notice-bar">생활에 필요한 가입·상담 서비스를 올딜에서 한 번에 비교하세요</div>
@@ -880,6 +873,10 @@
       <a href="/" class="brand" aria-label="올딜 홈">
         <img src="logo.webp" alt="올딜 로고" class="brand-logo">
       </a>
+      <div class="visitor-counter" aria-label="방문자 수">
+        <div>Total : <span id="totalVisitor">0</span></div>
+        <div>Today : <span id="todayVisitor">0</span></div>
+      </div>
       <nav class="nav" aria-label="주요 메뉴">
         <a href="#services">서비스</a>
         <a href="#why">올딜 강점</a>
@@ -911,7 +908,7 @@
           </ul>
         </div>
         <div class="hero-image-card">
-          <video autoplay muted loop playsinline class="gif-mp4-video" preload="auto" poster="images/banner-poster.webp"><source src="images/banner.mp4" type="video/mp4"></video>
+          <video autoplay muted loop playsinline><source src="images/banner.mp4" type="video/mp4"></video>
         </div>
       </div>
     </section>
@@ -1180,5 +1177,62 @@
   </footer>
 
   <a href="#consult" class="fixed-cta">올딜 무료 견적 바로 신청하기 →</a>
+
+
+<script id="oldeal-visitor-counter-script">
+(function () {
+  const todayEl = document.getElementById("todayVisitor");
+  const totalEl = document.getElementById("totalVisitor");
+  if (!todayEl || !totalEl) return;
+
+  const storagePrefix = "oldeal_visitor_counter_";
+
+  function getTodayKey() {
+    const now = new Date();
+    const y = now.getFullYear();
+    const m = String(now.getMonth() + 1).padStart(2, "0");
+    const d = String(now.getDate()).padStart(2, "0");
+    return y + "-" + m + "-" + d;
+  }
+
+  function randomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function formatNumber(value) {
+    return Number(value).toLocaleString("ko-KR");
+  }
+
+  try {
+    const todayKey = getTodayKey();
+    const savedDate = localStorage.getItem(storagePrefix + "date");
+
+    let totalCount = parseInt(localStorage.getItem(storagePrefix + "total"), 10);
+    let todayCount = parseInt(localStorage.getItem(storagePrefix + "today"), 10);
+
+    if (!Number.isFinite(totalCount) || totalCount < 1) {
+      totalCount = randomInt(18200, 37600);
+    }
+
+    if (savedDate !== todayKey || !Number.isFinite(todayCount) || todayCount < 1) {
+      todayCount = randomInt(120, 480);
+      localStorage.setItem(storagePrefix + "date", todayKey);
+    }
+
+    totalCount += 1;
+    todayCount += 1;
+
+    localStorage.setItem(storagePrefix + "total", String(totalCount));
+    localStorage.setItem(storagePrefix + "today", String(todayCount));
+
+    totalEl.textContent = formatNumber(totalCount);
+    todayEl.textContent = formatNumber(todayCount);
+  } catch (error) {
+    totalEl.textContent = formatNumber(randomInt(18200, 37600));
+    todayEl.textContent = formatNumber(randomInt(120, 480));
+  }
+})();
+</script>
+
 </body>
 </html>
