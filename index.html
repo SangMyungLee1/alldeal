@@ -818,43 +818,41 @@
     }
  	 
 
-/* 방문자수 표시 영역 */
-.visitor-counter {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 2px;
-  min-width: 104px;
-  padding: 7px 12px;
-  border-radius: 14px;
-  border: 1px solid rgba(65, 105, 225, 0.22);
-  background: rgba(255, 255, 255, 0.86);
-  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
-  color: #1e293b;
-  font-size: 12px;
-  font-weight: 900;
-  line-height: 1.25;
-  letter-spacing: -0.02em;
-  white-space: nowrap;
-}
-.visitor-counter span {
-  color: #4169e1;
-  font-weight: 950;
-}
-@media (max-width: 768px) {
-  .visitor-counter {
-    min-width: 86px;
-    padding: 5px 8px;
-    font-size: 10.5px;
-    border-radius: 12px;
-  }
-  header .badge {
-    font-size: 11px !important;
-    padding: 7px 9px !important;
-  }
-}
+    /* 방문자수 표시 영역 */
+    .od-visitor-counter {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3px;
+        margin: 0 0 12px;
+        padding: 8px 12px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.78);
+        border: 1px solid rgba(15, 23, 42, 0.10);
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+        color: #334155;
+        font-size: 13px;
+        font-weight: 900;
+        line-height: 1.25;
+        letter-spacing: -0.02em;
+    }
 
+    .od-visitor-counter .od-visitor-row {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        white-space: nowrap;
+    }
+
+    .od-visitor-counter .od-visitor-label {
+        min-width: 48px;
+        color: #475569;
+    }
+
+    .od-visitor-counter .od-visitor-number {
+        color: #0f172a;
+        font-variant-numeric: tabular-nums;
+    }
 </style>
   <!-- Danggeun Market Code -->
   <script src="https://karrot-pixel.business.daangn.com/karrot-pixel.js"></script>
@@ -873,10 +871,6 @@
       <a href="/" class="brand" aria-label="올딜 홈">
         <img src="logo.webp" alt="올딜 로고" class="brand-logo">
       </a>
-      <div class="visitor-counter" aria-label="방문자 수">
-        <div>Total : <span id="totalVisitor">0</span></div>
-        <div>Today : <span id="todayVisitor">0</span></div>
-      </div>
       <nav class="nav" aria-label="주요 메뉴">
         <a href="#services">서비스</a>
         <a href="#why">올딜 강점</a>
@@ -891,7 +885,11 @@
     <section class="hero-wrap">
       <div class="hero">
         <div>
-          <span class="eyebrow">대한민국 생활서비스 비교 플랫폼</span>
+                              <div class="od-visitor-counter" aria-label="방문자 수">
+                        <div class="od-visitor-row"><span class="od-visitor-label">Total :</span><span id="odTotalVisitor" class="od-visitor-number">0</span></div>
+                        <div class="od-visitor-row"><span class="od-visitor-label">Today :</span><span id="odTodayVisitor" class="od-visitor-number">0</span></div>
+                    </div>
+<span class="eyebrow">대한민국 생활서비스 비교 플랫폼</span>
           <h1 style="font-size: 35px;">포장이사·인터넷가입<br>정수기렌탈·장기렌트카<br> 토탈 비교는 <span>올딜</span></h1>
           <p class="hero-desc">
             이사, 인터넷가입, 정수기렌탈, 장기렌트카를 한 페이지에서 비교하고 신청하세요.
@@ -1178,59 +1176,42 @@
 
   <a href="#consult" class="fixed-cta">올딜 무료 견적 바로 신청하기 →</a>
 
-
-<script id="oldeal-visitor-counter-script">
+<script>
 (function () {
-  const todayEl = document.getElementById("todayVisitor");
-  const totalEl = document.getElementById("totalVisitor");
-  if (!todayEl || !totalEl) return;
+    var totalEl = document.getElementById('odTotalVisitor');
+    var todayEl = document.getElementById('odTodayVisitor');
+    if (!totalEl || !todayEl) return;
 
-  const storagePrefix = "oldeal_visitor_counter_";
+    var now = new Date();
+    var dateKey = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
+    var prefix = 'oldeal_display_counter_v20260707_today300_800';
 
-  function getTodayKey() {
-    const now = new Date();
-    const y = now.getFullYear();
-    const m = String(now.getMonth() + 1).padStart(2, "0");
-    const d = String(now.getDate()).padStart(2, "0");
-    return y + "-" + m + "-" + d;
-  }
-
-  function randomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
-  function formatNumber(value) {
-    return Number(value).toLocaleString("ko-KR");
-  }
-
-  try {
-    const todayKey = getTodayKey();
-    const savedDate = localStorage.getItem(storagePrefix + "date");
-
-    let totalCount = parseInt(localStorage.getItem(storagePrefix + "total"), 10);
-    let todayCount = parseInt(localStorage.getItem(storagePrefix + "today"), 10);
-
-    if (!Number.isFinite(totalCount) || totalCount < 1) {
-      totalCount = randomInt(18200, 37600);
+    function randomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    if (savedDate !== todayKey || !Number.isFinite(todayCount) || todayCount < 1) {
-      todayCount = randomInt(120, 480);
-      localStorage.setItem(storagePrefix + "date", todayKey);
+    var savedDate = localStorage.getItem(prefix + '_date');
+    var todayCount = parseInt(localStorage.getItem(prefix + '_today'), 10);
+    var totalCount = parseInt(localStorage.getItem(prefix + '_total'), 10);
+
+    // 첫 화면 표시 기준: Today 300~800, Total 78,000 이상
+    if (!Number.isFinite(totalCount) || totalCount < 78000) {
+        totalCount = randomInt(77999, 107999);
     }
 
-    totalCount += 1;
+    if (savedDate !== dateKey || !Number.isFinite(todayCount) || todayCount < 300 || todayCount > 800) {
+        todayCount = randomInt(299, 799);
+        localStorage.setItem(prefix + '_date', dateKey);
+    }
+
     todayCount += 1;
+    totalCount += 1;
 
-    localStorage.setItem(storagePrefix + "total", String(totalCount));
-    localStorage.setItem(storagePrefix + "today", String(todayCount));
+    localStorage.setItem(prefix + '_today', String(todayCount));
+    localStorage.setItem(prefix + '_total', String(totalCount));
 
-    totalEl.textContent = formatNumber(totalCount);
-    todayEl.textContent = formatNumber(todayCount);
-  } catch (error) {
-    totalEl.textContent = formatNumber(randomInt(18200, 37600));
-    todayEl.textContent = formatNumber(randomInt(120, 480));
-  }
+    totalEl.textContent = totalCount.toLocaleString('ko-KR');
+    todayEl.textContent = todayCount.toLocaleString('ko-KR');
 })();
 </script>
 
