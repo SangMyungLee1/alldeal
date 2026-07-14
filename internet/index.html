@@ -1132,7 +1132,8 @@ function gtag_report_conversion(url) {
         padding: 0 20px;
     }
 
-    .header-banner-gif img {
+    .header-banner-gif img,
+    .header-banner-gif video {
         display: block;
         width: 100%;
         height: auto;
@@ -1149,7 +1150,8 @@ function gtag_report_conversion(url) {
             padding: 0 14px;
         }
 
-        .header-banner-gif img {
+        .header-banner-gif img,
+        .header-banner-gif video {
             border-radius: 20px;
         }
     }
@@ -1157,7 +1159,7 @@ function gtag_report_conversion(url) {
     
     /* 2번째 배너 + 별점 후기 롤링 영역 */
     .second-banner-section{width:min(100%,1120px);margin:26px auto 0;padding:0 20px}
-    .second-banner-section img{display:block;width:100%;height:auto;object-fit:contain;border-radius:28px;border:1px solid var(--border);background:var(--card);box-shadow:var(--shadow)}
+    .second-banner-section img,.second-banner-section video{display:block;width:100%;height:auto;object-fit:contain;border-radius:28px;border:1px solid var(--border);background:var(--card);box-shadow:var(--shadow)}
     .review-section{margin-top:34px;padding:24px 0 36px;overflow:hidden;background:linear-gradient(180deg,rgba(232,239,255,.82) 0%,rgba(241,246,251,.92) 100%)}
     .review-rating-title{text-align:center;margin-bottom:18px;color:var(--foreground);font-size:15px;font-weight:900;letter-spacing:-.02em}
     .review-rating-title .stars{color:#f59e0b;font-size:18px;letter-spacing:1px;margin-right:6px;text-shadow:0 1px 0 rgba(0,0,0,.08)}
@@ -1176,7 +1178,7 @@ function gtag_report_conversion(url) {
     @keyframes reviewSlide{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
     @media(max-width:768px){
         .second-banner-section{margin-top:18px;padding:0 14px}
-        .second-banner-section img{border-radius:20px}
+        .second-banner-section img,.second-banner-section video{border-radius:20px}
         .review-section{margin-top:24px;padding:20px 0 30px}
         .review-card{flex-basis:196px;padding:10px}
         .review-card img{height:96px}
