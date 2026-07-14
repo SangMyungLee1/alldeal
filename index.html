@@ -21,6 +21,9 @@
   <link rel="shortcut icon" href="/favicon.webp">
   <link rel="icon" type="image/png" href="/favicon.webp">
   <link rel="apple-touch-icon" href="/favicon.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700;900&family=S-Core+Dream:wght@800;900&family=Single+Day&display=swap" rel="stylesheet">
   <style>
     :root {
       --background: #f1f6fb;
@@ -57,6 +60,50 @@
     a {
       color: inherit;
       text-decoration: none;
+    }
+
+    /* ★ 인터넷 페이지와 동일한 글자체 세팅 */
+    /* 꽉 찬 볼드 타이틀 전용 폰트 */
+    .font-title {
+      font-family: 'S-Core Dream', 'Noto Sans KR', sans-serif;
+      font-weight: 900;
+    }
+
+    /* 둥글둥글하고 다정한 감성 전용 폰트 */
+    .font-round {
+      font-family: 'Single Day', 'Noto Sans KR', sans-serif;
+      font-weight: 400;
+    }
+
+    /* ★ 헤더 바로 아래 전체폭 상단 배너 (인터넷 페이지와 동일 규격) */
+    .header-banner-gif {
+      width: min(100%, 1120px);
+      margin: 22px auto 0;
+      padding: 0 20px;
+    }
+
+    .header-banner-gif img,
+    .header-banner-gif video {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    @media (max-width: 768px) {
+      .header-banner-gif {
+        margin-top: 16px;
+        padding: 0 14px;
+      }
+
+      .header-banner-gif img,
+      .header-banner-gif video {
+        border-radius: 20px;
+      }
     }
 
     img {
@@ -166,13 +213,11 @@
     }
 
     .hero {
-      max-width: 1340px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 72px 20px 88px;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(320px, 728px);
-      gap: 52px;
-      align-items: center;
+      padding: 44px 20px 72px;
+      display: block;
+      text-align: center;
     }
 
     .eyebrow {
@@ -190,28 +235,58 @@
     }
 
     .hero h1 {
-      margin: 24px 0 0;
-      font-size: clamp(40px, 6vw, 58px);
-      line-height: 1.12;
-      letter-spacing: -0.065em;
-      font-weight: 950;
+      margin: 22px 0 0;
+      font-size: clamp(32px, 5vw, 50px);
+      line-height: 1.32;
+      letter-spacing: -0.02em;
+      font-weight: 900;
     }
 
     .hero h1 span {
       color: var(--primary);
     }
 
+    /* ★ 둥근 감성 폰트 설명 상자 (인터넷 페이지와 동일 감성) */
+    .hero-desc-box {
+      position: relative;
+      max-width: 620px;
+      margin: 26px auto 0;
+      padding: 18px 24px;
+      background: rgba(65, 105, 225, 0.04);
+      border: 1px solid rgba(65, 105, 225, 0.1);
+      border-radius: 20px;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.01);
+    }
+
+    .hero-desc-box::before {
+      content: "💡";
+      position: absolute;
+      left: -12px;
+      top: -12px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
     .hero-desc {
       max-width: 620px;
-      margin: 22px 0 0;
-      color: var(--muted);
-      font-size: 19px;
+      margin: 0;
+      color: #1e3a8a;
+      font-size: 20px;
+      line-height: 1.6;
       word-break: keep-all;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 12px;
       margin-top: 30px;
     }
@@ -246,6 +321,7 @@
     .stats {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 22px;
       margin-top: 34px;
       padding: 0;
@@ -263,20 +339,6 @@
     .stats span {
       color: var(--muted);
       font-weight: 600;
-    }
-
-    .hero-image-card {
-      overflow: hidden;
-      border-radius: 32px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-image-card video {
-      display: block;
-      width: 100%;
-      height: auto;
     }
 
     .section-head {
@@ -742,15 +804,6 @@
         display: none;
       }
 
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-image-card {
-        max-width: 620px;
-        margin: 0 auto;
-      }
-
       .why-grid,
       .consult-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -784,7 +837,15 @@
       }
 
       .hero {
-        padding: 54px 18px 64px;
+        padding: 32px 18px 56px;
+      }
+
+      .hero-desc-box {
+        padding: 16px 18px;
+      }
+
+      .hero-desc {
+        font-size: 18px;
       }
 
       .section {
@@ -887,33 +948,34 @@
     </div>
   </header>
 
+  <div class="header-banner-gif">
+    <video autoplay muted loop playsinline><source src="images/banner.mp4" type="video/mp4"></video>
+  </div>
+
   <main>
     <section class="hero-wrap">
       <div class="hero">
-        <div>
-                              <div class="od-visitor-counter" aria-label="방문자 수">
-                        <div class="od-visitor-row"><span class="od-visitor-label">Total :</span><span id="odTotalVisitor" class="od-visitor-number">0</span></div>
-                        <div class="od-visitor-row"><span class="od-visitor-label">Today :</span><span id="odTodayVisitor" class="od-visitor-number">0</span></div>
-                    </div>
-<span class="eyebrow">대한민국 생활서비스 비교 플랫폼</span>
-          <h1 style="font-size: 35px;">포장이사·인터넷가입<br>정수기렌탈·장기렌트카<br> 토탈 비교는 <span>올딜</span></h1>
-          <p class="hero-desc">
+        <div class="od-visitor-counter" aria-label="방문자 수">
+          <div class="od-visitor-row"><span class="od-visitor-label">Total :</span><span id="odTotalVisitor" class="od-visitor-number">0</span></div>
+          <div class="od-visitor-row"><span class="od-visitor-label">Today :</span><span id="odTodayVisitor" class="od-visitor-number">0</span></div>
+        </div>
+        <span class="eyebrow">대한민국 생활서비스 비교 플랫폼</span>
+        <h1 class="font-round">포장이사·인터넷가입<br>정수기렌탈·장기렌트카<br>토탈 비교는 <span>올딜</span></h1>
+        <div class="hero-desc-box">
+          <p class="hero-desc font-round">
             이사, 인터넷가입, 정수기렌탈, 장기렌트카를 한 페이지에서 비교하고 신청하세요.
             검증된 파트너사와 함께 올딜이 가장 좋은 조건을 찾아드립니다.
           </p>
-          <div class="hero-actions">
-            <a href="#consult" class="btn btn-primary">30초 무료 견적 받기</a>
-            <a href="#services" class="btn btn-light">서비스 둘러보기</a>
-          </div>
-          <ul class="stats" aria-label="올딜 주요 수치">
-            <li>⭐ 4.9/5 <span>고객 평점</span></li>
-            <li>👥 37,000+ <span>누적 매칭</span></li>
-            <li>🛡️ 검수 파트너만 매칭</li>
-          </ul>
         </div>
-        <div class="hero-image-card">
-          <video autoplay muted loop playsinline><source src="images/banner.mp4" type="video/mp4"></video>
+        <div class="hero-actions">
+          <a href="#consult" class="btn btn-primary">30초 무료 견적 받기</a>
+          <a href="#services" class="btn btn-light">서비스 둘러보기</a>
         </div>
+        <ul class="stats" aria-label="올딜 주요 수치">
+          <li>⭐ 4.9/5 <span>고객 평점</span></li>
+          <li>👥 37,000+ <span>누적 매칭</span></li>
+          <li>🛡️ 검수 파트너만 매칭</li>
+        </ul>
       </div>
     </section>
 
