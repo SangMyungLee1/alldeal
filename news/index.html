@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>클로드 뉴스 - 오늘의 다이제스트</title>
-<meta name="description" content="정치, 경제, 사회, IT/과학, 생활문화 5개 분야 오늘의 뉴스 요약">
+<title>올딜 NEW'S</title>
+<meta name="description" content="정치, 경제, 사회, IT/과학, 생활문화 뉴스 다이제스트">
 <style>
   :root {
     --bg: #f5f6f8; --card-bg: #ffffff; --text: #1a1a1a;
@@ -22,107 +22,136 @@
     font-family: -apple-system, "Segoe UI", "Malgun Gothic", sans-serif; line-height: 1.55;
   }
   .wrap { max-width: 720px; margin: 0 auto; }
-  nav {
-    max-width: 720px; margin: 0 auto; padding: 18px 0;
-  }
-  nav .brand { font-weight: 800; font-size: 1.1rem; color: var(--text); text-decoration: none; }
-  header.hero { text-align: center; padding: 20px 0 34px; }
-  header.hero h1 { font-size: 1.8rem; margin: 0 0 8px; }
-  header.hero p { color: var(--text-muted); margin: 0; font-size: 0.95rem; }
+  nav { max-width: 720px; margin: 0 auto; padding: 18px 0; }
+  nav .brand { font-weight: 800; font-size: 1.15rem; color: var(--text); text-decoration: none; }
+  header.hero { text-align: center; padding: 20px 0 30px; }
+  header.hero h1 { font-size: 1.9rem; margin: 0 0 8px; }
+  header.hero p { color: var(--text-muted); margin: 0; font-size: 0.92rem; }
   h2.section-title {
-    font-size: 1.05rem; margin: 30px 0 12px; padding-bottom: 6px; border-bottom: 2px solid var(--accent);
+    font-size: 1.08rem; margin: 34px 0 12px; padding-bottom: 6px; border-bottom: 2px solid var(--accent);
     display: inline-block;
   }
   .list { display: flex; flex-direction: column; gap: 10px; }
   .item {
     background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px;
-    padding: 16px 18px; text-decoration: none; color: var(--text); display: block;
+    padding: 15px 18px; text-decoration: none; color: var(--text);
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
     transition: border-color .15s ease, transform .15s ease;
   }
   .item:hover { border-color: var(--accent); transform: translateX(2px); }
+  .item .t { display: flex; align-items: center; gap: 10px; min-width: 0; }
   .item .badge {
-    display: inline-block; background: var(--badge-bg); color: var(--accent);
-    font-size: 0.72rem; font-weight: 700; padding: 3px 9px; border-radius: 999px; margin-bottom: 8px;
+    flex: none; background: var(--badge-bg); color: var(--accent);
+    font-size: 0.72rem; font-weight: 700; padding: 3px 9px; border-radius: 999px;
   }
-  .item h3 { margin: 0; font-size: 1rem; }
+  .item h3 { margin: 0; font-size: 0.98rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .item .date { flex: none; color: var(--text-muted); font-size: 0.78rem; }
+  .item.hidden { display: none; }
+  .more-btn {
+    margin-top: 10px; width: 100%; padding: 11px; border: 1px solid var(--border);
+    border-radius: 10px; background: var(--card-bg); color: var(--accent);
+    font-size: 0.9rem; font-weight: 700; cursor: pointer;
+    font-family: inherit;
+  }
+  .more-btn:hover { border-color: var(--accent); }
   footer { text-align: center; color: var(--text-muted); font-size: 0.78rem; margin-top: 48px; }
 </style>
 </head>
 <body>
   <nav>
-    <a class="brand" href="index.html">📰 클로드 뉴스</a>
+    <a class="brand" href="index.html">📰 올딜 NEW'S</a>
   </nav>
 
   <div class="wrap">
     <header class="hero">
-      <h1>오늘의 뉴스 다이제스트</h1>
-      <p>2026년 7월 20일 (월) · 5개 분야 · 10건</p>
+      <h1>올딜 NEW'S</h1>
+      <p id="hero-sub">뉴스 다이제스트</p>
     </header>
 
-    <h2 class="section-title">🏛️ 정치</h2>
-    <div class="list">
-      <a class="item" href="special-counsel-extension-bill.html">
-        <span class="badge">정치</span>
-        <h3>2차 종합특검 연장 법안, 국회 본회의 상정</h3>
-      </a>
-      <a class="item" href="lee-president-sns-controversy.html">
-        <span class="badge">정치</span>
-        <h3>이재명 대통령, SNS 발언으로 여당 내 파장</h3>
-      </a>
-    </div>
-
-    <h2 class="section-title">💰 경제</h2>
-    <div class="list">
-      <a class="item" href="won-internationalization-roadmap.html">
-        <span class="badge">경제</span>
-        <h3>정부, '원화 국제화 로드맵' 발표</h3>
-      </a>
-      <a class="item" href="weekly-financial-schedule.html">
-        <span class="badge">경제</span>
-        <h3>이번 주 국내 주요 금융 일정</h3>
-      </a>
-    </div>
-
-    <h2 class="section-title">🏙️ 사회</h2>
-    <div class="list">
-      <a class="item" href="incheon-coupang-warehouse-fire.html">
-        <span class="badge">사회</span>
-        <h3>인천 쿠팡 물류센터 화재, 사흘째 지속</h3>
-      </a>
-      <a class="item" href="police-investigation-reform-pledge.html">
-        <span class="badge">사회</span>
-        <h3>경찰청, '장윤기 사건' 관련 수사 쇄신 약속</h3>
-      </a>
-    </div>
-
-    <h2 class="section-title">💻 IT/과학</h2>
-    <div class="list">
-      <a class="item" href="aw2026-smart-factory-robotics.html">
-        <span class="badge">IT/과학</span>
-        <h3>AW 2026, 스마트팩토리·로보틱스 기술 총출동</h3>
-      </a>
-      <a class="item" href="google-ai-for-business-2026.html">
-        <span class="badge">IT/과학</span>
-        <h3>구글, 'AI 포 비즈니스 2026' 개최</h3>
-      </a>
-    </div>
-
-    <h2 class="section-title">🎨 생활/문화</h2>
-    <div class="list">
-      <a class="item" href="cho-seongjin-kiaf-seoul-2026.html">
-        <span class="badge">생활/문화</span>
-        <h3>피아니스트 조성진, '키아프 서울 2026' 특별 공연</h3>
-      </a>
-      <a class="item" href="summer-vacation-empty-house-crime.html">
-        <span class="badge">생활/문화</span>
-        <h3>여름 휴가철, 빈집 범죄 우려 확산</h3>
-      </a>
-    </div>
+    <div id="sections"></div>
 
     <footer>
-      본 사이트의 내용은 공개 검색 결과를 바탕으로 요약·재구성되었으며, 각 기사 페이지의 "원문 기사 보기" 링크를 통해 원문 언론사 기사를 확인하실 수 있습니다. 이미지는 CC 라이선스 재사용 사진(Openverse)을 사용했습니다.<br>
-      Generated by Claude
+      본 사이트의 내용은 공개 검색 결과를 바탕으로 요약·재구성되었습니다. 이미지는 CC 라이선스 하에 재사용이 허용된 사진(Openverse)을 사용했습니다.<br>
+      올딜 NEW'S
     </footer>
   </div>
+
+<script>
+// ===== 게시물 데이터 (매일 자동 갱신됨) =====
+const POSTS = [
+  { slug: "special-counsel-extension-bill", title: "2차 종합특검 연장 법안, 국회 본회의 상정", category: "정치", date: "2026-07-20" },
+  { slug: "lee-president-sns-controversy", title: "이재명 대통령, SNS 발언으로 여당 내 파장", category: "정치", date: "2026-07-20" },
+  { slug: "won-internationalization-roadmap", title: "정부, '원화 국제화 로드맵' 발표", category: "경제", date: "2026-07-20" },
+  { slug: "weekly-financial-schedule", title: "이번 주 국내 주요 금융 일정", category: "경제", date: "2026-07-20" },
+  { slug: "incheon-coupang-warehouse-fire", title: "인천 쿠팡 물류센터 화재, 사흘째 지속", category: "사회", date: "2026-07-20" },
+  { slug: "police-investigation-reform-pledge", title: "경찰청, '장윤기 사건' 관련 수사 쇄신 약속", category: "사회", date: "2026-07-20" },
+  { slug: "aw2026-smart-factory-robotics", title: "AW 2026, 스마트팩토리·로보틱스 기술 총출동", category: "IT/과학", date: "2026-07-20" },
+  { slug: "google-ai-for-business-2026", title: "구글, 'AI 포 비즈니스 2026' 개최", category: "IT/과학", date: "2026-07-20" },
+  { slug: "cho-seongjin-kiaf-seoul-2026", title: "피아니스트 조성진, '키아프 서울 2026' 특별 공연", category: "생활/문화", date: "2026-07-20" },
+  { slug: "summer-vacation-empty-house-crime", title: "여름 휴가철, 빈집 범죄 우려 확산", category: "생활/문화", date: "2026-07-20" }
+];
+// ============================================
+
+const CATEGORIES = [
+  { name: "정치", emoji: "🏛️" },
+  { name: "경제", emoji: "💰" },
+  { name: "사회", emoji: "🏙️" },
+  { name: "IT/과학", emoji: "💻" },
+  { name: "생활/문화", emoji: "🎨" }
+];
+const SHOW_COUNT = 8;
+
+const container = document.getElementById("sections");
+const dates = POSTS.map(p => p.date).sort();
+if (dates.length) {
+  document.getElementById("hero-sub").textContent =
+    "최근 업데이트 " + dates[dates.length - 1] + " · 총 " + POSTS.length + "건";
+}
+
+CATEGORIES.forEach(cat => {
+  const posts = POSTS
+    .filter(p => p.category === cat.name)
+    .sort((a, b) => b.date.localeCompare(a.date));
+  if (!posts.length) return;
+
+  const h2 = document.createElement("h2");
+  h2.className = "section-title";
+  h2.textContent = cat.emoji + " " + cat.name;
+  container.appendChild(h2);
+
+  const list = document.createElement("div");
+  list.className = "list";
+  posts.forEach((p, i) => {
+    const a = document.createElement("a");
+    a.className = "item" + (i >= SHOW_COUNT ? " hidden" : "");
+    a.href = p.slug + ".html";
+    a.innerHTML =
+      '<span class="t"><span class="badge">' + cat.name + '</span>' +
+      '<h3></h3></span><span class="date">' + p.date + '</span>';
+    a.querySelector("h3").textContent = p.title;
+    list.appendChild(a);
+  });
+  container.appendChild(list);
+
+  if (posts.length > SHOW_COUNT) {
+    const btn = document.createElement("button");
+    btn.className = "more-btn";
+    btn.textContent = "더보기 (" + (posts.length - SHOW_COUNT) + "건)";
+    btn.addEventListener("click", () => {
+      const hidden = list.querySelectorAll(".item.hidden");
+      if (hidden.length) {
+        hidden.forEach(el => el.classList.remove("hidden"));
+        btn.textContent = "접기";
+      } else {
+        list.querySelectorAll(".item").forEach((el, i) => {
+          if (i >= SHOW_COUNT) el.classList.add("hidden");
+        });
+        btn.textContent = "더보기 (" + (posts.length - SHOW_COUNT) + "건)";
+      }
+    });
+    container.appendChild(btn);
+  }
+});
+</script>
 </body>
 </html>
