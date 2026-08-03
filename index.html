@@ -1,1291 +1,613 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>올딜 - 이사·인터넷가입·정수기렌탈·장기렌트카 생활서비스 비교</title>
-  <meta name="description" content="올딜은 포장이사, 인터넷가입, 장기렌트카 등 생활에 필요한 다양한 서비스를 한 곳에서 비교하고 무료상담 가능한 생활서비스 비교 플랫폼입니다.">
-  <meta name="keywords" content="올딜, 이사, 포장이사, 인터넷가입, 정수기렌탈, 장기렌트카, 생활서비스 비교, 무료상담, 인터넷가입 현금사은품, 렌트카 견적">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://life-helper.co.kr/">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="올딜 - 이사·인터넷가입·정수기렌탈·장기렌트카 생활서비스 비교">
-  <meta property="og:description" content="올딜은 포장이사, 인터넷가입, 장기렌트카 등 생활에 필요한 다양한 서비스를 한 곳에서 비교하고 무료상담 가능한 생활서비스 비교 플랫폼입니다.">
-  <meta property="og:url" content="https://life-helper.co.kr/">
-  <meta property="og:image" content="https://life-helper.co.kr/favicon.webp">
-  <meta property="og:site_name" content="올딜">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="올딜 - 이사·인터넷가입·정수기렌탈·장기렌트카 생활서비스 비교">
-  <meta name="twitter:description" content="올딜은 포장이사, 인터넷가입, 장기렌트카 등 생활에 필요한 다양한 서비스를 한 곳에서 비교하고 무료상담 가능한 생활서비스 비교 플랫폼입니다.">
-  <meta name="twitter:image" content="https://life-helper.co.kr/favicon.webp">
-  <link rel="shortcut icon" href="/favicon.webp">
-  <link rel="icon" type="image/png" href="/favicon.webp">
-  <link rel="apple-touch-icon" href="/favicon.webp">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700;900&family=S-Core+Dream:wght@800;900&family=Single+Day&display=swap" rel="stylesheet">
-  <style>
-    /* ★ Single Day 손글씨체 단독 재로딩(안전장치) — 인터넷 페이지와 동일 방식.
-       위 통합 링크에 포함된 다른 폰트명 때문에 요청이 실패해도 이 폰트만은 별도로 확실히 불러옵니다. */
-    @import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap');
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>올딜 NEW'S</title>
+<meta name="description" content="정치, 경제, 사회, IT/과학, 생활문화 뉴스 다이제스트">
+<style>
+  :root {
+    --bg: #f5f6f8; --card-bg: #ffffff; --text: #1a1a1a;
+    --text-muted: #6b7280; --accent: #2563eb; --border: #e5e7eb; --badge-bg: #eef2ff;
+  }
+  @media (prefers-color-scheme: dark) {
     :root {
-      --background: #f1f6fb;
-      --foreground: #182234;
-      --card: #ffffff;
-      --muted: #64748b;
-      --primary: #4169e1;
-      --primary-dark: #2546b8;
-      --primary-soft: #e8efff;
-      --secondary: #e6eef7;
-      --accent: #f59e0b;
-      --border: #dbe4ee;
-      --shadow: 0 18px 45px rgba(15, 23, 42, 0.09);
-      --radius: 24px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans KR", "Apple SD Gothic Neo", "Segoe UI", sans-serif;
-      background: var(--background);
-      color: var(--foreground);
-      line-height: 1.65;
-      letter-spacing: -0.03em;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* ★ 인터넷 페이지와 동일한 글자체 세팅 */
-    /* 꽉 찬 볼드 타이틀 전용 폰트 */
-    .font-title {
-      font-family: 'S-Core Dream', 'Noto Sans KR', sans-serif;
-      font-weight: 900;
-    }
-
-    /* 둥글둥글하고 다정한 감성 전용 폰트 */
-    .font-round {
-      font-family: 'Single Day', 'Noto Sans KR', sans-serif;
-      font-weight: 400;
-    }
-
-    /* ★ 헤더 바로 아래 전체폭 상단 배너 (인터넷 페이지와 동일 규격) */
-    .header-banner-gif {
-      width: min(100%, 1120px);
-      margin: 22px auto 0;
-      padding: 0 20px;
-    }
-
-    .header-banner-gif img,
-    .header-banner-gif video {
-      display: block;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      border-radius: 28px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      box-shadow: var(--shadow);
-    }
-
-    @media (max-width: 768px) {
-      .header-banner-gif {
-        margin-top: 16px;
-        padding: 0 14px;
-      }
-
-      .header-banner-gif img,
-      .header-banner-gif video {
-        border-radius: 20px;
-      }
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .notice-bar {
-      background: var(--primary);
-      color: #ffffff;
-      text-align: center;
-      padding: 10px 16px;
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: #ffffff;
-      backdrop-filter: none;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .header-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      font-weight: 950;
-      letter-spacing: -0.04em;
-    }
-
-    .brand-logo {
-      display: block;
-      height: 88px;
-      width: auto;
-      max-width: 170px;
-      object-fit: contain;
-    }
-
-    .brand-mark {
-      width: 38px;
-      height: 38px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 13px;
-      background: var(--primary);
-      color: #ffffff;
-      font-weight: 950;
-      box-shadow: 0 10px 22px rgba(65, 105, 225, 0.22);
-    }
-
-    .brand-text {
-      font-size: 22px;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      color: var(--muted);
-      font-size: 18px;
-      font-weight: 800;
-    }
-
-    .nav a:hover {
-      color: var(--primary);
-    }
-
-    .header-cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 18px;
-      border-radius: 999px;
-      background: var(--primary);
-      color: #ffffff;
-      font-size: 14px;
-      font-weight: 900;
-      box-shadow: 0 10px 20px rgba(65, 105, 225, 0.16);
-    }
-
-    .section {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 84px 20px;
-    }
-
-    .hero-wrap {
-      border-bottom: 1px solid var(--border);
-      background:
-        radial-gradient(circle at 80% 10%, rgba(65,105,225,0.18), transparent 32%),
-        linear-gradient(180deg, #e8efff 0%, var(--background) 100%);
-    }
-
-    .hero {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 44px 20px 72px;
-      display: block;
-      text-align: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      color: var(--primary);
-      padding: 8px 15px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 900;
-      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
-    }
-
-    .hero h1 {
-      margin: 22px 0 0;
-      font-size: clamp(32px, 5vw, 50px);
-      line-height: 1.32;
-      letter-spacing: -0.02em;
-      font-weight: 900;
-    }
-
-    .hero h1 span {
-      color: var(--primary);
-    }
-
-    /* ★ 둥근 감성 폰트 설명 상자 (인터넷 페이지와 동일 감성) */
-    .hero-desc-box {
-      position: relative;
-      max-width: 620px;
-      margin: 26px auto 0;
-      padding: 18px 24px;
-      background: rgba(65, 105, 225, 0.04);
-      border: 1px solid rgba(65, 105, 225, 0.1);
-      border-radius: 20px;
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.01);
-    }
-
-    .hero-desc-box::before {
-      content: "💡";
-      position: absolute;
-      left: -12px;
-      top: -12px;
-      width: 32px;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      background: #ffffff;
-      border-radius: 50%;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    }
-
-    .hero-desc {
-      max-width: 620px;
-      margin: 0;
-      color: #1e3a8a;
-      font-size: 20px;
-      line-height: 1.6;
-      word-break: keep-all;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 30px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 50px;
-      padding: 14px 24px;
-      border-radius: 15px;
-      font-weight: 950;
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: #ffffff;
-      box-shadow: 0 15px 28px rgba(65, 105, 225, 0.22);
-    }
-
-    .btn-light {
-      background: var(--card);
-      color: var(--foreground);
-      border: 1px solid var(--border);
-    }
-
-    .stats {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 22px;
-      margin-top: 34px;
-      padding: 0;
-      list-style: none;
-    }
-
-    .stats li {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      font-size: 14px;
-      font-weight: 900;
-    }
-
-    .stats span {
-      color: var(--muted);
-      font-weight: 600;
-    }
-
-    .section-head {
-      max-width: 720px;
-      margin: 0 auto 46px;
-      text-align: center;
-    }
-
-    .section-label {
-      margin: 0;
-      color: var(--primary);
-      font-size: 27px;
-      font-weight: 950;
-      letter-spacing: 0.08em;
-    }
-
-    .section-title {
-      margin: 12px 0 0;
-      font-size: clamp(30px, 4vw, 42px);
-      line-height: 1.25;
-      letter-spacing: -0.055em;
-      font-weight: 950;
-    }
-
-    .section-desc {
-      margin: 16px auto 0;
-      color: var(--muted);
-      font-size: 18px;
-      word-break: keep-all;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
-    }
-
-    .service-card {
-      overflow: hidden;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 30px;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--primary);
-      box-shadow: var(--shadow);
-    }
-
-    .service-image {
-      position: relative;
-      overflow: hidden;
-      background: var(--secondary);
-    }
-
-    .service-image img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      transition: transform .3s ease;
-}
-
-    .service-card:hover .service-image img {
-      transform: scale(1.04);
-    }
-
-    .tag {
-      position: absolute;
-      left: 16px;
-      top: 16px;
-      padding: 9px 16px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.95);
-      color: var(--primary);
-      font-size: 15px;
-      line-height: 1.15;
-      font-weight: 950;
-      backdrop-filter: blur(8px);
-    }
-
-    .service-body {
-      padding: 28px 26px 30px;
-}
-.service-body h3 {
-      margin: 0;
-      font-size: 26px;
-      font-weight: 950;
-      letter-spacing: -0.045em;
-    }
-
-    .service-body p {
-      margin: 12px 0 0;
-      color: var(--muted);
-      word-break: keep-all;
-    }
-
-    .feature-list {
-      display: grid;
-      gap: 10px;
-      margin: 20px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .feature-list li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 16px;
-      font-weight: 800;
-    }
-
-    .check {
-      flex: none;
-      width: 24px;
-      height: 24px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      background: var(--primary-soft);
-      color: var(--primary);
-      font-size: 15px;
-      font-weight: 950;
-    }
-
-    .card-link {
-      margin-top: 24px;
-      width: 100%;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 58px;
-      padding: 17px 22px;
-      border-radius: 18px;
-      background: var(--secondary);
-      color: var(--primary);
-      font-size: 18px;
-      line-height: 1.2;
-      font-weight: 950;
-    }
-
-    .why-wrap,
-    .consult-wrap {
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: var(--card);
-    }
-
-    .why-grid,
-    .consult-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .reason-card,
-    .consult-card,
-    .step-card,
-    .faq-card {
-      background: var(--background);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 24px;
-    }
-
-    .icon-box {
-      width: 50px;
-      height: 50px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 16px;
-      background: var(--primary-soft);
-      color: var(--primary);
-      font-size: 25px;
-    }
-
-    .reason-card h3,
-    .consult-card h3,
-    .step-card h3 {
-      margin: 16px 0 0;
-      font-size: 19px;
-      line-height: 1.35;
-      font-weight: 950;
-    }
-
-    .reason-card p,
-    .consult-card p,
-    .step-card p {
-      margin: 9px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-      word-break: keep-all;
-    }
-
-    .big-stats {
-      margin-top: 46px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      overflow: hidden;
-      border-radius: 28px;
-      background: var(--primary);
-      color: #ffffff;
-    }
-
-    .big-stats div {
-      padding: 32px 18px;
-      text-align: center;
-    }
-
-    .big-stats strong {
-      display: block;
-      font-size: clamp(28px, 4vw, 42px);
-      line-height: 1;
-      font-weight: 950;
-    }
-
-    .big-stats span {
-      display: block;
-      margin-top: 8px;
-      font-size: 14px;
-      opacity: .88;
-      font-weight: 700;
-    }
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .step-num {
-      width: 45px;
-      height: 45px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 15px;
-      background: var(--primary-soft);
-      color: var(--primary);
-      font-size: 18px;
-      font-weight: 950;
-    }
-
-    .consult-wrap {
-      background: var(--secondary);
-    }
-
-    .consult-card {
-      background: var(--card);
-      display: flex;
-      flex-direction: column;
-      min-height: 190px;
-    }
-
-    .consult-illust {
-      margin: 0 0 14px;
-      padding: 12px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, #f8fafc, #fff7ed);
-      border: 1px solid var(--border);
-      overflow: hidden;
-    }
-
-    .consult-illust img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .consult-card p {
-      flex: 1;
-    }
-
-    .consult-card .btn {
-      margin-top: 16px;
-      min-height: 45px;
-      width: 100%;
-      padding: 11px 16px;
-      font-size: 17px;
-      font-weight: 900;
-      border-radius: 14px;
-    }
-
-    .safe-box {
-      max-width: 760px;
-      margin: 32px auto 0;
-      padding: 20px 24px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      border-radius: 22px;
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-    .faq-section {
-      max-width: 820px;
-    }
-
-    details {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.03);
-    }
-
-    details + details {
-      margin-top: 12px;
-    }
-
-    summary {
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      font-weight: 950;
-      list-style: none;
-    }
-
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    summary::after {
-      content: "+";
-      color: var(--primary);
-      font-size: 22px;
-      line-height: 1;
-      transition: transform .2s ease;
-    }
-
-    details[open] summary::after {
-      transform: rotate(45deg);
-    }
-
-    details p {
-      margin: 12px 0 0;
-      color: var(--muted);
-      word-break: keep-all;
-    }
-
-    .site-footer {
-      background: #111827;
-      color: #ffffff;
-    }
-
-    .footer-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 56px 20px 46px;
-    }
-
-    .footer-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-
-    .footer-desc {
-      margin: 16px 0 0;
-      max-width: 360px;
-      color: rgba(255,255,255,.68);
-      font-size: 14px;
-    }
-
-    .footer-links {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(120px, 1fr));
-      gap: 36px;
-      min-width: 280px;
-    }
-
-    .footer-links p {
-      margin: 0 0 14px;
-      font-size: 14px;
-      font-weight: 950;
-    }
-
-    .footer-links ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 9px;
-      color: rgba(255,255,255,.68);
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .footer-bottom {
-      margin-top: 44px;
-      padding-top: 28px;
-      border-top: 1px solid rgba(255,255,255,.15);
-    }
-
-    .footer-bottom nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px 26px;
-      color: rgba(255,255,255,.78);
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-    .copyright {
-      margin: 22px 0 0;
-      color: rgba(255,255,255,.48);
-      font-size: 12px;
-      line-height: 1.8;
-    }
-
-    .fixed-cta {
-      position: fixed;
-      left: 50%;
-      bottom: 18px;
-      transform: translateX(-50%);
-      z-index: 80;
-      width: min(94vw, 580px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      min-height: 72px;
-      padding: 22px 30px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #f97316, #ea580c);
-      color: #ffffff;
-      font-size: 18px;
-      line-height: 1.25;
-      font-weight: 950;
-      box-shadow: 0 18px 35px rgba(234, 88, 12, .34);
-    }
-
-    @media (max-width: 640px) {
-      .card-link {
-        font-size: 16px;
-        min-height: 54px;
-        padding: 15px 18px;
-      }
-
-      .fixed-cta {
-        width: min(94vw, 520px);
-        min-height: 66px;
-        padding: 18px 22px;
-        font-size: 16px;
-      }
-    }
-
-    @media (max-width: 920px) {
-      .nav {
-        display: none;
-      }
-
-      .why-grid,
-      .consult-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .big-stats {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 640px) {
-      .notice-bar {
-        font-size: 13px;
-      }
-
-      .header-inner {
-        padding: 6px 16px;
-      }
-
-
-      .brand-logo {
-        height: 78px;
-      }
-
-      .brand-text {
-        font-size: 20px;
-      }
-
-      .header-cta {
-        padding: 9px 14px;
-      }
-
-      .hero {
-        padding: 32px 18px 56px;
-      }
-
-      .hero-desc-box {
-        padding: 16px 18px;
-      }
-
-      .hero-desc {
-        font-size: 18px;
-      }
-
-      .section {
-        padding: 62px 18px;
-      }
-
-      .services-grid,
-      .why-grid,
-      .consult-grid,
-      .steps-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-actions .btn {
-        width: 100%;
-      }
-
-      .stats {
-        gap: 14px;
-      }
-
-      .big-stats {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-top {
-        display: block;
-      }
-
-      .footer-links {
-        margin-top: 34px;
-      }
-
-      body {
-        padding-bottom: 78px;
-      }
-    }
- 	 
-
-    /* 방문자수 표시 영역 */
-    .od-visitor-counter {
-        display: inline-flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 3px;
-        margin: 0 0 12px;
-        padding: 8px 12px;
-        border-radius: 14px;
-        background: rgba(255, 255, 255, 0.78);
-        border: 1px solid rgba(15, 23, 42, 0.10);
-        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
-        color: #334155;
-        font-size: 13px;
-        font-weight: 900;
-        line-height: 1.25;
-        letter-spacing: -0.02em;
-    }
-
-    .od-visitor-counter .od-visitor-row {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        white-space: nowrap;
-    }
-
-    .od-visitor-counter .od-visitor-label {
-        min-width: 48px;
-        color: #475569;
-    }
-
-    .od-visitor-counter .od-visitor-number {
-        color: #0f172a;
-        font-variant-numeric: tabular-nums;
-    }
+      --bg: #15171c; --card-bg: #1e2128; --text: #e8e8ea;
+      --text-muted: #9aa0aa; --accent: #6ea8ff; --border: #2c303a; --badge-bg: #23283a;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0 16px 56px; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", "Malgun Gothic", sans-serif; line-height: 1.55;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  nav { max-width: 760px; margin: 0 auto; padding: 18px 0; }
+  nav .brand { font-weight: 800; font-size: 1.15rem; color: var(--text); text-decoration: none; }
+  header.hero { text-align: center; padding: 18px 0 26px; }
+  header.hero h1 { font-size: 1.9rem; margin: 0 0 8px; }
+  header.hero p { color: var(--text-muted); margin: 0; font-size: 0.92rem; }
+  section.cat { margin-bottom: 30px; }
+  h2.section-title {
+    font-size: 1.08rem; margin: 0 0 14px; padding-bottom: 6px;
+    border-bottom: 2px solid var(--accent); display: inline-block;
+  }
+  .list { display: flex; flex-direction: column; gap: 10px; }
+  .item {
+    background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px;
+    padding: 12px; text-decoration: none; color: var(--text);
+    display: flex; gap: 14px; align-items: center;
+    transition: border-color .15s ease, transform .15s ease;
+  }
+  .item:hover { border-color: var(--accent); transform: translateX(2px); }
+  .item .thumb {
+    flex: none; width: 104px; height: 74px; object-fit: cover;
+    border-radius: 8px; background: var(--badge-bg);
+  }
+  .item .body { min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+  .item .badge {
+    align-self: flex-start; background: var(--badge-bg); color: var(--accent);
+    font-size: 0.7rem; font-weight: 700; padding: 3px 9px; border-radius: 999px;
+  }
+  .item h3 {
+    margin: 0; font-size: 0.98rem; line-height: 1.38;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .item .date { color: var(--text-muted); font-size: 0.76rem; }
+  .item.hidden { display: none; }
+  .more-btn {
+    margin-top: 12px; width: 100%; padding: 11px; border: 1px solid var(--border);
+    border-radius: 10px; background: var(--card-bg); color: var(--accent);
+    font-size: 0.9rem; font-weight: 700; cursor: pointer; font-family: inherit;
+  }
+  .more-btn:hover { border-color: var(--accent); }
 </style>
-  <!-- Danggeun Market Code -->
-  <script src="https://karrot-pixel.business.daangn.com/karrot-pixel.js"></script>
-  <script>
-  window.karrotPixel.init('1782458897811975001');
-  window.karrotPixel.track('ViewPage');
-  </script>
-  <!-- End Danggeun Market Code -->
-  <link rel="alternate" type="application/rss+xml" title="올딜 생활정보 RSS" href="https://life-helper.co.kr/rss.xml">
 </head>
 <body>
-  <div class="notice-bar">생활에 필요한 가입·상담 서비스를 올딜에서 한 번에 비교하세요</div>
+  <nav>
+    <a class="brand" href="index.html">📰 올딜 NEW'S</a>
+  </nav>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="/" class="brand" aria-label="올딜 홈">
-        <img src="logo.webp" alt="올딜 로고" class="brand-logo">
-      </a>
-      <nav class="nav" aria-label="주요 메뉴">
-        <a href="#services">서비스</a>
-        <a href="#why">올딜 강점</a>
-        <a href="#guide">이용방법</a>
-        <a href="#faq">자주 묻는 질문</a>
-      </nav>
-      <a href="#consult" class="header-cta">무료 견적</a>
-    </div>
-  </header>
+  <div class="wrap">
+    <header class="hero">
+      <h1>올딜 NEW'S</h1>
+      <p>최근 업데이트 2026-08-04 · 총 62건</p>
+    </header>
 
-  <div class="header-banner-gif">
-    <video autoplay muted loop playsinline><source src="images/banner.mp4" type="video/mp4"></video>
+    <section class="cat">
+      <h2 class="section-title">🏛️ 정치</h2>
+      <div class="list">
+        <a class="item" href="defense-counterintelligence-command-dissolved.html">
+          <img class="thumb" src="images/defense-counterintelligence-command-dissolved-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">정치</span>
+            <h3>49년 방첩사 역사 마감…국방방첩본부 등 3개 조직 창설</h3>
+            <span class="date">2026-08-04</span>
+          </div>
+        </a>
+        <a class="item" href="lee-president-cabinet-briefing-resume.html">
+          <img class="thumb" src="images/lee-president-cabinet-briefing-resume-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">정치</span>
+            <h3>이재명 대통령 순방 마치고 귀국…4~5일 27개 기관 업무보고 재개</h3>
+            <span class="date">2026-08-03</span>
+          </div>
+        </a>
+        <a class="item" href="kwon-youngjin-defection-refusal.html">
+          <img class="thumb" src="images/kwon-youngjin-defection-refusal-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">정치</span>
+            <h3>'멱살 논란' 권영진 "자진탈당 않겠다"…국민의힘 징계 수순</h3>
+            <span class="date">2026-08-02</span>
+          </div>
+        </a>
+        <a class="item" href="iran-jordan-kuwait-base-strikes.html">
+          <img class="thumb" src="images/iran-jordan-kuwait-base-strikes-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">정치</span>
+            <h3>이란 "요르단·쿠웨이트 미군기지 공격"…미국 "피해 없다" 반박</h3>
+            <span class="date">2026-08-02</span>
+          </div>
+        </a>
+        <a class="item" href="prosecutor-general-resigns-criminal-law.html">
+          <img class="thumb" src="images/prosecutor-general-resigns-criminal-law-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">정치</span>
+            <h3>검찰총장 대행, '보완수사권 폐지' 형소법 통과에 사의 표명</h3>
+            <span class="date">2026-08-01</span>
+          </div>
+        </a>
+        <a class="item" href="prosecutor-bill-filibuster-cloture-vote.html">
+          <img class="thumb" src="images/prosecutor-bill-filibuster-cloture-vote-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">정치</span>
+            <h3>'보완수사권 폐지' 형소법, 필리버스터 강제종료 표결 임박…31일 처리 전망</h3>
+            <span class="date">2026-07-31</span>
+          </div>
+        </a>
+        <a class="item" href="kim-taehyo-detained-indictment.html">
+          <img class="thumb" src="images/kim-taehyo-detained-indictment-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">정치</span>
+            <h3>종합특검, 김태효 前 안보실 1차장 구속기소…"계엄 정당화 메시지" 혐의</h3>
+            <span class="date">2026-07-30</span>
+          </div>
+        </a>
+        <a class="item" href="prosecutor-supplementary-investigation-bill.html">
+          <img class="thumb" src="images/prosecutor-supplementary-investigation-bill-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">정치</span>
+            <h3>'보완수사권 폐지' 형소법 개정안 법사위 소위 통과…국민의힘 반발 퇴장</h3>
+            <span class="date">2026-07-29</span>
+          </div>
+        </a>
+        <a class="item hidden" href="yoon-false-statement-verdict.html">
+          <img class="thumb" src="images/yoon-false-statement-verdict-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">정치</span>
+            <h3>尹, '건진법사 몰랐다' 발언 허위사실공표 1심 징역형 집유…확정시 국힘 397억 반환</h3>
+            <span class="date">2026-07-28</span>
+          </div>
+        </a>
+        <a class="item hidden" href="pp-committee-assignment-clash.html">
+          <img class="thumb" src="images/pp-committee-assignment-clash-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">정치</span>
+            <h3>국민의힘, 상임위 배정 놓고 내홍…원내대표실서 몸싸움까지</h3>
+            <span class="date">2026-07-27</span>
+          </div>
+        </a>
+        <a class="item hidden" href="lee-president-brazil-lula-summit.html">
+          <img class="thumb" src="images/lee-president-brazil-lula-summit-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">정치</span>
+            <h3>이재명 대통령, 브라질리아서 룰라와 정상회담…"전략적 동반자 관계 격상"</h3>
+            <span class="date">2026-07-27</span>
+          </div>
+        </a>
+        <a class="item hidden" href="lee-president-brazil-state-visit.html">
+          <img class="thumb" src="images/lee-president-brazil-state-visit-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">정치</span>
+            <h3>이재명 대통령, 브라질 국빈 방문 시작…룰라 대통령과 정상외교</h3>
+            <span class="date">2026-07-26</span>
+          </div>
+        </a>
+        <a class="item hidden" href="lee-president-us-latam-tour.html">
+          <img class="thumb" src="images/lee-president-us-latam-tour-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">정치</span>
+            <h3>이재명 대통령, 美·남미 7박11일 순방…'샌프란시스코 AI 선언' 발표</h3>
+            <span class="date">2026-07-24</span>
+          </div>
+        </a>
+        <a class="item hidden" href="wonhee-ryong-special-counsel-summons.html">
+          <img class="thumb" src="images/wonhee-ryong-special-counsel-summons-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">정치</span>
+            <h3>원희룡 전 장관, 2차 종합특검 첫 소환조사…'양평고속도로 의혹'</h3>
+            <span class="date">2026-07-24</span>
+          </div>
+        </a>
+        <a class="item hidden" href="oh-sehun-poll-fine-verdict.html">
+          <img class="thumb" src="images/oh-sehun-poll-fine-verdict-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">정치</span>
+            <h3>오세훈, '여론조사 대납' 1심 벌금 1000만원…시장직 상실 기로</h3>
+            <span class="date">2026-07-23</span>
+          </div>
+        </a>
+        <a class="item hidden" href="election-commission-special-counsel-deal.html">
+          <img class="thumb" src="images/election-commission-special-counsel-deal-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">정치</span>
+            <h3>여야, 선관위 특검법 전격 합의…국회 정상화 물꼬</h3>
+            <span class="date">2026-07-22</span>
+          </div>
+        </a>
+        <a class="item hidden" href="lee-president-apartment-mortgage-row.html">
+          <img class="thumb" src="images/lee-president-apartment-mortgage-row-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">정치</span>
+            <h3>이재명 대통령 아파트 매도 '17억 근저당' 논란</h3>
+            <span class="date">2026-07-21</span>
+          </div>
+        </a>
+        <a class="item hidden" href="special-counsel-extension-bill-passed.html">
+          <img class="thumb" src="images/special-counsel-extension-bill-passed-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">정치</span>
+            <h3>2차 종합특검 연장법, 필리버스터 끝에 국회 통과</h3>
+            <span class="date">2026-07-21</span>
+          </div>
+        </a>
+        <a class="item hidden" href="special-counsel-extension-bill.html">
+          <img class="thumb" src="images/special-counsel-extension-bill-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">정치</span>
+            <h3>2차 종합특검 연장 법안, 국회 본회의 상정</h3>
+            <span class="date">2026-07-20</span>
+          </div>
+        </a>
+        <a class="item hidden" href="lee-president-sns-controversy.html">
+          <img class="thumb" src="images/lee-president-sns-controversy-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">정치</span>
+            <h3>이재명 대통령, SNS 발언으로 여당 내 파장</h3>
+            <span class="date">2026-07-20</span>
+          </div>
+        </a>
+      </div>
+        <button class="more-btn">더보기</button>
+    </section>
+
+    <section class="cat">
+      <h2 class="section-title">💰 경제</h2>
+      <div class="list">
+        <a class="item" href="tax-reform-2026-real-estate-tax.html">
+          <img class="thumb" src="images/tax-reform-2026-real-estate-tax-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">경제</span>
+            <h3>정부, 2026 세제개편안 확정…고가·다주택자 종부세 강화</h3>
+            <span class="date">2026-08-04</span>
+          </div>
+        </a>
+        <a class="item" href="hanmi-semiconductor-8th-factory.html">
+          <img class="thumb" src="images/hanmi-semiconductor-8th-factory-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">경제</span>
+            <h3>한미반도체, 인천에 '창사 최대' 8공장 검토…장비 쇼티지 선제 대응</h3>
+            <span class="date">2026-08-03</span>
+          </div>
+        </a>
+        <a class="item" href="samsung-memory-shortage-2028.html">
+          <img class="thumb" src="images/samsung-memory-shortage-2028-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">경제</span>
+            <h3>삼성전자 "메모리 공급 부족 2028년까지"…하이퍼스케일러 5곳과 장기계약</h3>
+            <span class="date">2026-08-01</span>
+          </div>
+        </a>
+        <a class="item" href="choi-taewon-sk-hynix-stock-purchase.html">
+          <img class="thumb" src="images/choi-taewon-sk-hynix-stock-purchase-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">경제</span>
+            <h3>최태원 SK 회장, SK하이닉스 주식 48억원 첫 장내매수…"책임경영" 메시지</h3>
+            <span class="date">2026-07-31</span>
+          </div>
+        </a>
+        <a class="item" href="samsung-q2-earnings-record.html">
+          <img class="thumb" src="images/samsung-q2-earnings-record-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">경제</span>
+            <h3>삼성전자 2분기 영업이익 89.4조 '역대 최대'…메모리값 급등 효과</h3>
+            <span class="date">2026-07-30</span>
+          </div>
+        </a>
+        <a class="item" href="kospi-cxmt-circuit-breaker.html">
+          <img class="thumb" src="images/kospi-cxmt-circuit-breaker-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">경제</span>
+            <h3>코스피 서킷브레이커에 6023선 마감…창신메모리發 반도체 쇼크 '역대급 폭락'</h3>
+            <span class="date">2026-07-29</span>
+          </div>
+        </a>
+        <a class="item" href="kospi-semiconductor-rally.html">
+          <img class="thumb" src="images/kospi-semiconductor-rally-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">경제</span>
+            <h3>코스피 6755선 마감…삼성전자·SK하이닉스 강세, 개인·기관 쌍끌이 매수</h3>
+            <span class="date">2026-07-28</span>
+          </div>
+        </a>
+        <a class="item" href="won-dollar-1480-mideast-tension.html">
+          <img class="thumb" src="images/won-dollar-1480-mideast-tension-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">경제</span>
+            <h3>원/달러 환율 1480원대…중동 불안·강달러에 고환율 지속</h3>
+            <span class="date">2026-07-23</span>
+          </div>
+        </a>
+        <a class="item hidden" href="homeplus-rehabilitation-restart.html">
+          <img class="thumb" src="images/homeplus-rehabilitation-restart-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">경제</span>
+            <h3>홈플러스 회생절차 재개…법원, 폐지결정 취소</h3>
+            <span class="date">2026-07-22</span>
+          </div>
+        </a>
+        <a class="item hidden" href="bok-rate-hike-july2026.html">
+          <img class="thumb" src="images/bok-rate-hike-july2026-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">경제</span>
+            <h3>한은, 3년 6개월 만에 기준금리 2.75%로 인상</h3>
+            <span class="date">2026-07-21</span>
+          </div>
+        </a>
+        <a class="item hidden" href="samsung-biologics-polypeptide-deal.html">
+          <img class="thumb" src="images/samsung-biologics-polypeptide-deal-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">경제</span>
+            <h3>삼성바이오로직스, 2.7조원에 폴리펩타이드 그룹 인수</h3>
+            <span class="date">2026-07-21</span>
+          </div>
+        </a>
+        <a class="item hidden" href="won-internationalization-roadmap.html">
+          <img class="thumb" src="images/won-internationalization-roadmap-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">경제</span>
+            <h3>정부, '원화 국제화 로드맵' 발표</h3>
+            <span class="date">2026-07-20</span>
+          </div>
+        </a>
+        <a class="item hidden" href="weekly-financial-schedule.html">
+          <img class="thumb" src="images/weekly-financial-schedule-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">경제</span>
+            <h3>이번 주 국내 주요 금융 일정</h3>
+            <span class="date">2026-07-20</span>
+          </div>
+        </a>
+      </div>
+        <button class="more-btn">더보기</button>
+    </section>
+
+    <section class="cat">
+      <h2 class="section-title">🏙️ 사회</h2>
+      <div class="list">
+        <a class="item" href="yangsan-record-heat-42-5.html">
+          <img class="thumb" src="images/yangsan-record-heat-42-5-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">사회</span>
+            <h3>경남 양산 42.5도…122년 관측 사상 최고기온, 중대본 2단계 격상</h3>
+            <span class="date">2026-08-03</span>
+          </div>
+        </a>
+        <a class="item" href="kumamoto-quake-death-toll-34.html">
+          <img class="thumb" src="images/kumamoto-quake-death-toll-34-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">사회</span>
+            <h3>구마모토 강진 사망자 34명으로 급증…폭염 속 여진 공포</h3>
+            <span class="date">2026-08-02</span>
+          </div>
+        </a>
+        <a class="item" href="yangpyeong-restaurant-ceiling-collapse.html">
+          <img class="thumb" src="images/yangpyeong-restaurant-ceiling-collapse-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">사회</span>
+            <h3>양평 무한리필 식당 천장 붕괴…14명 부상</h3>
+            <span class="date">2026-07-31</span>
+          </div>
+        </a>
+        <a class="item" href="kumamoto-quake-death-toll-13.html">
+          <img class="thumb" src="images/kumamoto-quake-death-toll-13-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">사회</span>
+            <h3>구마모토 지진 사망자 13명으로 늘어…이온몰 붕괴, 반도체 공장도 피해</h3>
+            <span class="date">2026-07-30</span>
+          </div>
+        </a>
+        <a class="item" href="kumamoto-earthquake-mall-collapse.html">
+          <img class="thumb" src="images/kumamoto-earthquake-mall-collapse-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">사회</span>
+            <h3>日 구마모토 규모 7.1 강진…쇼핑몰 붕괴·폭발로 다수 사망 추정</h3>
+            <span class="date">2026-07-29</span>
+          </div>
+        </a>
+        <a class="item" href="heatwave-livestock-toll.html">
+          <img class="thumb" src="images/heatwave-livestock-toll-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">사회</span>
+            <h3>전국 폭염 계속…온열질환 사망 8명, 가축 25만 마리 폐사</h3>
+            <span class="date">2026-07-28</span>
+          </div>
+        </a>
+        <a class="item" href="heatwave-death-toll-summer2026.html">
+          <img class="thumb" src="images/heatwave-death-toll-summer2026-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">사회</span>
+            <h3>전국 폭염 계속…온열질환 사망자 늘어, 100세 노인도 참변</h3>
+            <span class="date">2026-07-27</span>
+          </div>
+        </a>
+        <a class="item" href="goyang-ilsan-apartment-fire.html">
+          <img class="thumb" src="images/goyang-ilsan-apartment-fire-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">사회</span>
+            <h3>고양 일산 아파트서 화재…주민 대피 소동, 48분 만에 진화</h3>
+            <span class="date">2026-07-26</span>
+          </div>
+        </a>
+        <a class="item hidden" href="choi-tw-noh-sy-divorce-settlement.html">
+          <img class="thumb" src="images/choi-tw-noh-sy-divorce-settlement-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">사회</span>
+            <h3>최태원-노소영 재산분할 파기환송심, 9440억원 확정…"역대 최대"</h3>
+            <span class="date">2026-07-25</span>
+          </div>
+        </a>
+        <a class="item hidden" href="gyeongnam-heatwave-first-death.html">
+          <img class="thumb" src="images/gyeongnam-heatwave-first-death-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">사회</span>
+            <h3>경남 첫 온열질환 추정 사망자…고성서 90대 여성 숨져</h3>
+            <span class="date">2026-07-24</span>
+          </div>
+        </a>
+        <a class="item hidden" href="coupang-warehouse-fire-contained.html">
+          <img class="thumb" src="images/coupang-warehouse-fire-contained-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">사회</span>
+            <h3>인천 쿠팡 물류센터 화재, 61시간 만에 큰불 잡혀</h3>
+            <span class="date">2026-07-21</span>
+          </div>
+        </a>
+        <a class="item hidden" href="heatwave-illness-surge.html">
+          <img class="thumb" src="images/heatwave-illness-surge-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">사회</span>
+            <h3>폭염에 온열질환자 급증, 질병관리청 "7말 8초 주의"</h3>
+            <span class="date">2026-07-21</span>
+          </div>
+        </a>
+        <a class="item hidden" href="incheon-coupang-warehouse-fire.html">
+          <img class="thumb" src="images/incheon-coupang-warehouse-fire-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">사회</span>
+            <h3>인천 쿠팡 물류센터 화재, 사흘째 지속</h3>
+            <span class="date">2026-07-20</span>
+          </div>
+        </a>
+        <a class="item hidden" href="police-investigation-reform-pledge.html">
+          <img class="thumb" src="images/police-investigation-reform-pledge-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">사회</span>
+            <h3>경찰청, '장윤기 사건' 관련 수사 쇄신 약속</h3>
+            <span class="date">2026-07-20</span>
+          </div>
+        </a>
+      </div>
+        <button class="more-btn">더보기</button>
+    </section>
+
+    <section class="cat">
+      <h2 class="section-title">💻 IT/과학</h2>
+      <div class="list">
+        <a class="item" href="national-ai-computing-center-groundbreaking.html">
+          <img class="thumb" src="images/national-ai-computing-center-groundbreaking-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">IT/과학</span>
+            <h3>해남 솔라시도서 '국가 AI 컴퓨팅센터' 착공…2028년 가동 목표</h3>
+            <span class="date">2026-08-04</span>
+          </div>
+        </a>
+        <a class="item" href="eu-ai-act-transparency-rules.html">
+          <img class="thumb" src="images/eu-ai-act-transparency-rules-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">IT/과학</span>
+            <h3>EU AI 콘텐츠 표시 의무 8월 2일 시행…한국 기업도 사정권</h3>
+            <span class="date">2026-08-01</span>
+          </div>
+        </a>
+        <a class="item" href="nvidia-sk-500bn-partnership.html">
+          <img class="thumb" src="images/nvidia-sk-500bn-partnership-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">IT/과학</span>
+            <h3>젠슨 황 "SK와 5000억달러 파트너십"…엔비디아, 한국에 AI 연구소 세운다</h3>
+            <span class="date">2026-07-25</span>
+          </div>
+        </a>
+        <a class="item" href="samsung-sk-naver-us-ai-summit.html">
+          <img class="thumb" src="images/samsung-sk-naver-us-ai-summit-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">IT/과학</span>
+            <h3>이재용·최태원·이해진, 美서 젠슨 황과 회동…HBM 동맹 다진다</h3>
+            <span class="date">2026-07-23</span>
+          </div>
+        </a>
+        <a class="item" href="skhynix-nasdaq-adr-listing.html">
+          <img class="thumb" src="images/skhynix-nasdaq-adr-listing-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">IT/과학</span>
+            <h3>SK하이닉스, 나스닥 ADR 상장…역대 최대 40조원 조달</h3>
+            <span class="date">2026-07-22</span>
+          </div>
+        </a>
+        <a class="item" href="naver-ai-tab-launch.html">
+          <img class="thumb" src="images/naver-ai-tab-launch-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">IT/과학</span>
+            <h3>네이버, 대화형 검색 'AI탭' 정식 출시…광고 수익화 시동</h3>
+            <span class="date">2026-07-21</span>
+          </div>
+        </a>
+        <a class="item" href="samsung-skhynix-cxl-memory.html">
+          <img class="thumb" src="images/samsung-skhynix-cxl-memory-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">IT/과학</span>
+            <h3>삼성전자·SK하이닉스, HBM 이후 겨냥한 CXL 메모리 개발 경쟁</h3>
+            <span class="date">2026-07-21</span>
+          </div>
+        </a>
+        <a class="item" href="aw2026-smart-factory-robotics.html">
+          <img class="thumb" src="images/aw2026-smart-factory-robotics-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">IT/과학</span>
+            <h3>AW 2026, 스마트팩토리·로보틱스 기술 총출동</h3>
+            <span class="date">2026-07-20</span>
+          </div>
+        </a>
+        <a class="item hidden" href="google-ai-for-business-2026.html">
+          <img class="thumb" src="images/google-ai-for-business-2026-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">IT/과학</span>
+            <h3>구글, 'AI 포 비즈니스 2026' 개최</h3>
+            <span class="date">2026-07-20</span>
+          </div>
+        </a>
+      </div>
+        <button class="more-btn">더보기</button>
+    </section>
+
+    <section class="cat">
+      <h2 class="section-title">🎨 생활/문화</h2>
+      <div class="list">
+        <a class="item" href="sunday-heatwave-rain-forecast.html">
+          <img class="thumb" src="images/sunday-heatwave-rain-forecast-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">생활/문화</span>
+            <h3>일요일도 찜통더위…중부·경북엔 소나기, 열대야 이어져</h3>
+            <span class="date">2026-07-26</span>
+          </div>
+        </a>
+        <a class="item" href="gyeongju-pohang-extreme-heat-warning.html">
+          <img class="thumb" src="images/gyeongju-pohang-extreme-heat-warning-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">생활/문화</span>
+            <h3>경주·포항 첫 '폭염중대경보'…정부, 현장상황관리관 급파</h3>
+            <span class="date">2026-07-25</span>
+          </div>
+        </a>
+        <a class="item" href="seoul-tropical-night-heatwave.html">
+          <img class="thumb" src="images/seoul-tropical-night-heatwave-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">생활/문화</span>
+            <h3>서울 첫 열대야에 폭염특보 확산…"나오는 순간 사우나"</h3>
+            <span class="date">2026-07-21</span>
+          </div>
+        </a>
+        <a class="item" href="hajiwon-mlb-fenway-pitch.html">
+          <img class="thumb" src="images/hajiwon-mlb-fenway-pitch-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">생활/문화</span>
+            <h3>하지원, 한국 배우 최초로 MLB 펜웨이 파크 시구</h3>
+            <span class="date">2026-07-21</span>
+          </div>
+        </a>
+        <a class="item" href="cho-seongjin-kiaf-seoul-2026.html">
+          <img class="thumb" src="images/cho-seongjin-kiaf-seoul-2026-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">생활/문화</span>
+            <h3>피아니스트 조성진, '키아프 서울 2026' 특별 공연</h3>
+            <span class="date">2026-07-20</span>
+          </div>
+        </a>
+        <a class="item" href="summer-vacation-empty-house-crime.html">
+          <img class="thumb" src="images/summer-vacation-empty-house-crime-1.webp" alt="" loading="lazy">
+          <div class="body">
+            <span class="badge">생활/문화</span>
+            <h3>여름 휴가철, 빈집 범죄 우려 확산</h3>
+            <span class="date">2026-07-20</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
   </div>
 
-  <main>
-    <section class="hero-wrap">
-      <div class="hero">
-        <div class="od-visitor-counter" aria-label="방문자 수">
-          <div class="od-visitor-row"><span class="od-visitor-label">Total :</span><span id="odTotalVisitor" class="od-visitor-number">0</span></div>
-          <div class="od-visitor-row"><span class="od-visitor-label">Today :</span><span id="odTodayVisitor" class="od-visitor-number">0</span></div>
-        </div>
-        <span class="eyebrow">대한민국 생활서비스 비교 플랫폼</span>
-        <h1 class="font-round">포장이사·인터넷가입<br>정수기렌탈·장기렌트카<br>토탈 비교는 <span>올딜</span></h1>
-        <div class="hero-desc-box">
-          <p class="hero-desc font-round">
-            이사, 인터넷가입, 정수기렌탈, 장기렌트카를 한 페이지에서 비교하고 신청하세요.
-            검증된 파트너사와 함께 올딜이 가장 좋은 조건을 찾아드립니다.
-          </p>
-        </div>
-        <div class="hero-actions">
-          <a href="#consult" class="btn btn-primary">30초 무료 견적 받기</a>
-          <a href="#services" class="btn btn-light">서비스 둘러보기</a>
-        </div>
-        <ul class="stats" aria-label="올딜 주요 수치">
-          <li>⭐ 4.9/5 <span>고객 평점</span></li>
-          <li>👥 37,000+ <span>누적 매칭</span></li>
-          <li>🛡️ 검수 파트너만 매칭</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="services" class="section">
-      <div class="section-head">
-        <p class="section-label">SERVICE</p>
-        <h2 class="section-title">한 번 가입으로 끝나는 생활 필수 서비스</h2>
-        <p class="section-desc">이사·인터넷·정수기·렌트카까지 따로 알아보지 마세요. 올딜이 한 번에 정리해드립니다.</p>
-      </div>
-
-      <div class="services-grid">
-        <article class="service-card">
-          <div class="service-image">
-            <img src="images/이사.webp" alt="올딜 이사 서비스">
-            <span class="tag">검증된 업체 최저가 견적</span>
-          </div>
-          <div class="service-body">
-            <h3>이사</h3>
-            <p>포장이사, 원룸이사, 사무실이사까지 본사 검수를 통과한 업체에서만 무료로 견적을 비교합니다.</p>
-            <ul class="feature-list">
-              <li><span class="check">✓</span>전국 검증 업체 즉시 비교</li>
-              <li><span class="check">✓</span>파손 보상 가입 업체만 매칭</li>
-              <li><span class="check">✓</span>입주청소·에어컨 이전 옵션</li>
-            </ul>
-            <a href="/pojang/" class="card-link">이사 무료 견적 →</a>
-          </div>
-        </article>
-
-        <article class="service-card">
-          <div class="service-image">
-            <img src="images/인터넷.webp" alt="올딜 인터넷가입 서비스">
-            <span class="tag">통신 3사 최대 사은품</span>
-          </div>
-          <div class="service-body">
-            <h3>인터넷가입</h3>
-            <p>KT·SK·LG U+ 인터넷·TV·모바일 결합 상품을 한눈에 비교하고 전용 현금 사은품 혜택을 챙기세요.</p>
-            <ul class="feature-list">
-              <li><span class="check">✓</span>기가 인터넷 + IPTV 결합 비교</li>
-              <li><span class="check">✓</span>신규·이전·번호이동 사은품</li>
-              <li><span class="check">✓</span>전문 상담사 1:1 컨설팅</li>
-            </ul>
-            <a href="/internet/" class="card-link">인터넷 상담받기 →</a>
-          </div>
-        </article>
-
-        <article class="service-card">
-          <div class="service-image">
-            <img src="images/정수기.webp" alt="올딜 정수기렌탈 서비스">
-            <span class="tag">주요 브랜드 월 렌탈 비교</span>
-          </div>
-          <div class="service-body">
-            <h3>정수기렌탈</h3>
-            <p>코웨이·청호·SK매직 등 주요 브랜드 정수기 렌탈 조건을 비교하고 관리 서비스까지 한 번에 신청하세요.</p>
-            <ul class="feature-list">
-              <li><span class="check">✓</span>브랜드별 월 렌탈료 비교</li>
-              <li><span class="check">✓</span>첫 달 무료 + 사은품 제공</li>
-              <li><span class="check">✓</span>정기 방문관리·필터교체</li>
-            </ul>
-            <a href="#consult" class="card-link">정수기 상담받기 →</a>
-          </div>
-        </article>
-
-        <article class="service-card">
-          <div class="service-image">
-            <img src="images/렌트카.webp" alt="올딜 장기렌트카 서비스">
-            <span class="tag">전 차종 월 납입금 비교</span>
-          </div>
-          <div class="service-body">
-            <h3>장기렌트카</h3>
-            <p>신차 출고부터 보험·정비·세금까지 포함된 장기렌트를 차종·계약기간별로 한 화면에서 비교하세요.</p>
-            <ul class="feature-list">
-              <li><span class="check">✓</span>국산·수입 전 차종 실시간 비교</li>
-              <li><span class="check">✓</span>보험·정비·세금 월납 포함</li>
-              <li><span class="check">✓</span>신용·직장 조건별 무료 심사</li>
-            </ul>
-            <a href="#consult" class="card-link">렌트카 무료 견적 →</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="why" class="why-wrap">
-      <div class="section">
-        <div class="section-head">
-          <p class="section-label">WHY 올딜</p>
-          <h2 class="section-title">조건은 가장 좋게, 과정은 가장 간단하게</h2>
-          <p class="section-desc">올딜은 단순한 비교 사이트가 아닙니다. 직접 검증한 파트너만 연결하고, 신청부터 사후관리까지 책임집니다.</p>
-        </div>
-
-        <div class="why-grid">
-          <div class="reason-card">
-            <span class="icon-box">✅</span>
-            <h3>검증된 파트너만 매칭</h3>
-            <p>이사·렌트·인터넷·정수기, 자체 심사를 통과한 업체만 올딜에 연결됩니다.</p>
-          </div>
-          <div class="reason-card">
-            <span class="icon-box">💰</span>
-            <h3>최저가 비교, 추가 비용 0원</h3>
-            <p>여러 곳을 따로 알아볼 필요 없이 한 페이지에서 최저가 견적을 받아보세요.</p>
-          </div>
-          <div class="reason-card">
-            <span class="icon-box">🎧</span>
-            <h3>1:1 전문 상담사 배정</h3>
-            <p>신청 즉시 담당 상담사가 배정되어 가장 합리적인 조건을 직접 안내해드립니다.</p>
-          </div>
-          <div class="reason-card">
-            <span class="icon-box">🎁</span>
-            <h3>올딜 전용 사은품</h3>
-            <p>통신·정수기·이사 신청 시 현금/상품권 등 올딜 전용 사은품 혜택을 제공합니다.</p>
-          </div>
-        </div>
-
-        <div class="big-stats">
-          <div><strong>37,000+</strong><span>누적 매칭 건수</span></div>
-          <div><strong>4.9</strong><span>평균 만족도</span></div>
-          <div><strong>10분</strong><span>평균 견적 도착</span></div>
-          <div><strong>200+</strong><span>검증 파트너사</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="guide" class="section">
-      <div class="section-head">
-        <p class="section-label">HOW TO USE</p>
-        <h2 class="section-title">복잡한 생활서비스를 쉽게</h2>
-        <p class="section-desc">원하는 카테고리만 선택하면 됩니다. 신청부터 상담 연결까지 올딜이 함께합니다.</p>
-      </div>
-
-      <div class="steps-grid">
-        <div class="step-card">
-          <span class="step-num">1</span>
-          <h3>서비스 선택</h3>
-          <p>이사, 인터넷가입, 정수기렌탈, 장기렌트카 중 필요한 서비스를 선택합니다.</p>
-        </div>
-        <div class="step-card">
-          <span class="step-num">2</span>
-          <h3>조건 입력</h3>
-          <p>지역, 일정, 상품, 예산 등 필요한 조건을 30초 안에 간단하게 입력합니다.</p>
-        </div>
-        <div class="step-card">
-          <span class="step-num">3</span>
-          <h3>상담 연결</h3>
-          <p>전담 상담사가 배정되어 10분 안에 가장 좋은 조건으로 연락드립니다.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="consult" class="consult-wrap">
-      <div class="section">
-        <div class="section-head">
-          <p class="section-label">QUICK CONSULT</p>
-          <h2 class="section-title">원하는 서비스를 선택하면<br> 10분 안에 연락드려요</h2>
-          <p class="section-desc">각 서비스마다 전담 상담사가 배정되어 가장 좋은 조건으로 안내해드립니다.</p>
-        </div>
-
-        <div class="consult-grid">
-          <div class="consult-card">
-            <div class="consult-illust"><img src="images/moving-illust.webp" alt="올딜 이사 상담 일러스트"></div>
-            <h3>이사</h3>
-            <p>검증된 업체 최저가 견적</p>
-            <a href="/pojang/" class="btn btn-primary">무료 견적 신청 →</a>
-          </div>
-          <div class="consult-card">
-            <div class="consult-illust"><img src="images/internet.webp" alt="올딜 인터넷가입 상담 일러스트"></div>
-            <h3>인터넷가입</h3>
-            <p>통신 3사 최대 사은품</p>
-            <a href="/internet/" class="btn btn-primary">무료 견적 신청 →</a>
-          </div>
-          <div class="consult-card">
-            <div class="consult-illust"><img src="images/water-illust.webp" alt="올딜 정수기렌탈 상담 일러스트"></div>
-            <h3>정수기렌탈</h3>
-            <p>주요 브랜드 월 렌탈 비교</p>
-            <a href="#consult" class="btn btn-primary">무료 견적 신청 →</a>
-          </div>
-          <div class="consult-card">
-            <div class="consult-illust"><img src="images/car-illust.webp" alt="올딜 장기렌트카 상담 일러스트"></div>
-            <h3>장기렌트카</h3>
-            <p>전 차종 월 납입금 비교</p>
-            <a href="#consult" class="btn btn-primary">무료 견적 신청 →</a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <section id="faq" class="section faq-section">
-      <div class="section-head">
-        <p class="section-label">FAQ</p>
-        <h2 class="section-title">궁금했던 점, 미리 정리했어요</h2>
-      </div>
-
-      <details>
-        <summary>올딜 서비스는 정말 무료인가요?</summary>
-        <p>네, 올딜의 모든 견적 비교와 상담은 100% 무료입니다. 신청 후 별도의 가입비나 수수료가 청구되지 않으며, 최종 계약은 직접 비교 후 결정하시면 됩니다.</p>
-      </details>
-      <details>
-        <summary>한 번에 여러 서비스를 같이 신청해도 되나요?</summary>
-        <p>물론입니다. 이사·인터넷·정수기·렌트카를 함께 신청하시면 서비스별 전담 상담사가 각각 배정되어 한 번에 정리해드립니다.</p>
-      </details>
-      <details>
-        <summary>상담 전화는 언제 오나요?</summary>
-        <p>신청 후 영업시간 기준 평균 10분 안에 담당 상담사가 연락드립니다. 영업시간 외 신청은 다음 영업일 오전에 순차적으로 연락드립니다.</p>
-      </details>
-      <details>
-        <summary>이사·렌트 업체는 어떻게 선정되나요?</summary>
-        <p>올딜 자체 심사를 통과한 검증 파트너사만 매칭됩니다. 파손 보상 가입 여부, 계약 이력, 고객 평점 등을 종합적으로 검토합니다.</p>
-      </details>
-      <details>
-        <summary>신청 후 마음에 들지 않으면 취소할 수 있나요?</summary>
-        <p>네, 견적 비교 단계에서는 언제든 부담 없이 취소할 수 있습니다. 최종 계약 전까지 어떠한 의무도 발생하지 않습니다.</p>
-      </details>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div>
-          <a href="/" class="brand">
-            <img src="logo-black.webp" alt="올딜 로고" class="brand-logo">
-                      </a>
-          <p class="footer-desc">
-            생활서비스 비교·상담 플랫폼<br>
-            이사 · 인터넷가입 · 정수기렌탈 · 장기렌트카를 한 곳에서.
-          </p>
-        </div>
-
-        <div class="footer-links">
-          <div>
-            <p>바로가기</p>
-            <ul>
-              <li><a href="/">홈</a></li>
-              <li><a href="#services">서비스</a></li>
-              <li><a href="#why">올딜 강점</a></li>
-              <li><a href="#guide">이용방법</a></li>
-              <li><a href="#faq">자주 묻는 질문</a></li>
-            </ul>
-          </div>
-          <div>
-            <p>서비스</p>
-            <ul>
-              <li><a href="#services">이사</a></li>
-              <li><a href="#services">인터넷가입</a></li>
-              <li><a href="#services">정수기렌탈</a></li>
-              <li><a href="#services">장기렌트카</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <nav aria-label="하단 링크">
-          <a href="#">회사소개</a>
-          <a href="#">이용약관</a>
-          <a href="#">개인정보처리방침</a>
-          <a href="#">제휴문의</a>
-          <a href="#consult">고객센터</a>
-        </nav>
-        <p class="copyright">
-          올딜(OLLDEAL)은 생활서비스 비교·상담 안내 플랫폼이며, 실제 계약은 각 파트너사와 체결됩니다.<br>
-          상담 신청 시 입력하신 정보는 상담 목적 외에는 사용되지 않습니다. © 2026 올딜. All rights reserved.
-        </p>
-      </div>
-    </div>
-  </footer>
-
-  <a href="#consult" class="fixed-cta">올딜 무료 견적 바로 신청하기 →</a>
-
-<script>
-(function () {
-    var totalEl = document.getElementById('odTotalVisitor');
-    var todayEl = document.getElementById('odTodayVisitor');
-    if (!totalEl || !todayEl) return;
-
-    var now = new Date();
-    var dateKey = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
-    var prefix = 'oldeal_display_counter_v20260707_today300_800';
-
-    function randomInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    var savedDate = localStorage.getItem(prefix + '_date');
-    var todayCount = parseInt(localStorage.getItem(prefix + '_today'), 10);
-    var totalCount = parseInt(localStorage.getItem(prefix + '_total'), 10);
-
-    // 첫 화면 표시 기준: Today 300~800, Total 78,000 이상
-    if (!Number.isFinite(totalCount) || totalCount < 78000) {
-        totalCount = randomInt(77999, 107999);
-    }
-
-    if (savedDate !== dateKey || !Number.isFinite(todayCount) || todayCount < 300 || todayCount > 800) {
-        todayCount = randomInt(299, 799);
-        localStorage.setItem(prefix + '_date', dateKey);
-    }
-
-    todayCount += 1;
-    totalCount += 1;
-
-    localStorage.setItem(prefix + '_today', String(todayCount));
-    localStorage.setItem(prefix + '_total', String(totalCount));
-
-    totalEl.textContent = totalCount.toLocaleString('ko-KR');
-    todayEl.textContent = todayCount.toLocaleString('ko-KR');
-})();
-</script>
-
+  <script>
+    document.querySelectorAll(".more-btn").forEach(function(btn){var list=btn.previousElementSibling;btn.addEventListener("click",function(){var h=list.querySelectorAll(".item.hidden");if(h.length){h.forEach(function(e){e.classList.remove("hidden")});btn.textContent="접기"}else{list.querySelectorAll(".item").forEach(function(e,i){if(i>=8)e.classList.add("hidden")});btn.textContent="더보기"}})});
+  </script>
 </body>
 </html>
