@@ -541,6 +541,110 @@
     .process-steps { gap: 32px; }
     .process-step::after { display: none; }
   }
+
+
+  /* ── 상단 카카오톡 광고 배너 ── */
+  .kakao-ad-banner {
+    display: block;
+    width: 100%;
+    padding: 30px 5% 28px;
+    text-align: center;
+    text-decoration: none;
+    color: #1f1200;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(255,255,255,0.7) 0 3px, transparent 4px),
+      radial-gradient(circle at 85% 75%, rgba(255,255,255,0.55) 0 4px, transparent 5px),
+      linear-gradient(135deg, #FFE500 0%, #FFD000 44%, #FF8A00 100%);
+    border-top: 5px solid #ffef62;
+    border-bottom: 8px solid #e92918;
+    box-shadow: 0 10px 28px rgba(11,31,58,0.28);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .kakao-ad-banner::before,
+  .kakao-ad-banner::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    width: 110px;
+    height: 220%;
+    background: rgba(255,255,255,0.16);
+    transform: rotate(22deg);
+  }
+
+  .kakao-ad-banner::before { left: 7%; }
+  .kakao-ad-banner::after { right: 7%; }
+
+  .kakao-ad-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .kakao-ad-line {
+    display: block;
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -2px;
+  }
+
+  .kakao-ad-line:first-child {
+    font-size: clamp(38px, 6vw, 92px);
+    color: #c91000;
+    text-shadow:
+      0 3px 0 #fff,
+      0 6px 0 rgba(11,31,58,0.2),
+      0 10px 22px rgba(100,20,0,0.22);
+    margin-bottom: 14px;
+  }
+
+  .kakao-ad-line:last-child {
+    font-size: clamp(28px, 4.8vw, 68px);
+    color: #ffffff;
+    background: #e92918;
+    border: 4px solid #ffffff;
+    border-radius: 14px;
+    padding: 11px 22px 13px;
+    box-shadow: 0 7px 0 #a70f04, 0 12px 22px rgba(80,0,0,0.25);
+    animation: kakaoBannerPulse 1.6s ease-in-out infinite;
+  }
+
+  .kakao-ad-banner:hover .kakao-ad-line:last-child {
+    transform: translateY(-2px) scale(1.015);
+    background: #ff2412;
+  }
+
+  @keyframes kakaoBannerPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.025); }
+  }
+
+  @media (max-width: 640px) {
+    .kakao-ad-banner {
+      padding: 22px 16px 23px;
+      border-bottom-width: 6px;
+    }
+
+    .kakao-ad-line {
+      letter-spacing: -1px;
+    }
+
+    .kakao-ad-line:first-child {
+      font-size: clamp(30px, 10vw, 52px);
+      margin-bottom: 10px;
+    }
+
+    .kakao-ad-line:last-child {
+      font-size: clamp(22px, 6.8vw, 34px);
+      padding: 10px 8px 12px;
+      border-width: 3px;
+      border-radius: 10px;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -550,6 +654,19 @@
   <div class="logo">정관<span>대리운전</span></div>
   <a href="tel:010-0000-0000" class="header-tel">📞 010-0000-0000</a>
 </header>
+
+<!-- 카카오톡 광고 배너 -->
+<a href="https://open.kakao.com/o/sDx5mkHi"
+   class="kakao-ad-banner"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="카카오톡 광고 문의">
+  <div class="kakao-ad-inner">
+    <span class="kakao-ad-line">이 위치에 광고 올려드립니다.</span>
+    <span class="kakao-ad-line">▶클릭시 카톡으로 바로 연결됩니다.◀</span>
+  </div>
+</a>
+
 
 <!-- ① HERO 섹션 -->
 <section class="hero">
