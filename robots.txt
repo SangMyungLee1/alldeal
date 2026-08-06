@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://life-helper.co.kr/sitemap.xml
+Sitemap: https://life-helper.co.kr/misc/drive/sitemap.xml
