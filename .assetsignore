@@ -6,4 +6,10 @@ node_modules
 node_modules/**
 .next
 .next/**
+.wrangler
+.wrangler/**
 *.zip
+scripts
+scripts/**
+wrangler.jsonc
+README.md
