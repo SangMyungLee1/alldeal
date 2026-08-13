@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>삼성, 갤럭시 8월 보안 패치 공개…56개 취약점 수정, 클립보드 결함 포함 - 올딜 NEW'S</title>
+<style>
+  :root {
+    --bg: #f5f6f8; --card-bg: #ffffff; --text: #1a1a1a;
+    --text-muted: #6b7280; --accent: #2563eb; --border: #e5e7eb; --badge-bg: #eef2ff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #15171c; --card-bg: #1e2128; --text: #e8e8ea;
+      --text-muted: #9aa0aa; --accent: #6ea8ff; --border: #2c303a; --badge-bg: #23283a;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0 16px 64px; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", "Malgun Gothic", sans-serif; line-height: 1.75;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; }
+  nav {
+    max-width: 680px; margin: 0 auto; padding: 18px 0;
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  }
+  nav .brand { font-weight: 800; font-size: 1.1rem; color: var(--text); text-decoration: none; }
+  nav a.back { color: var(--text-muted); text-decoration: none; font-size: 0.88rem; }
+  nav a.back:hover { color: var(--accent); }
+  article {
+    background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px;
+    padding: 30px 28px;
+  }
+  .badge {
+    display: inline-block; background: var(--badge-bg); color: var(--accent);
+    font-size: 0.78rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; margin-bottom: 14px;
+  }
+  h1 { font-size: 1.4rem; margin: 0 0 10px; }
+  .meta { color: var(--text-muted); font-size: 0.82rem; margin: 0 0 20px; }
+  figure.photo { margin: 22px 0; }
+  figure.photo img { width: 100%; max-height: 360px; object-fit: cover; border-radius: 10px; display: block; background: var(--badge-bg); }
+  figure.photo figcaption { font-size: 0.7rem; color: var(--text-muted); margin-top: 5px; text-align: right; }
+  figure.photo figcaption a { color: var(--text-muted); }
+  p { margin: 0 0 15px; font-size: 0.97rem; }
+</style>
+</head>
+<body>
+  <nav>
+    <a class="brand" href="index.html">📰 올딜 NEW'S</a>
+    <a class="back" href="index.html">← 목록으로</a>
+  </nav>
+
+  <div class="wrap">
+    <article>
+      <span class="badge">💻 IT/과학</span>
+      <h1>삼성, 갤럭시 8월 보안 패치 공개…56개 취약점 수정, 클립보드 결함 포함</h1>
+      <p class="meta">2026년 8월 13일 (목)</p>
+
+      <p>삼성전자가 갤럭시 스마트폰과 태블릿을 대상으로 한 2026년 8월 보안 패치 세부 내용을 공개했다. 이번 패치는 구글이 안드로이드 시스템에서 발견해 공개한 취약점 38건과, 삼성 자체 취약점 관리 체계인 SVE(Samsung Vulnerabilities and Exposures)를 통해 확인된 18건을 더해 총 56건의 보안 결함을 수정한다. 구글이 공개한 38건 가운데 8건은 심각도가 '치명적(critical)' 등급으로 분류됐고, 나머지 30건은 '높음(high)' 등급에 해당한다.</p>
+
+      <p>삼성이 자체적으로 관리하는 SVE 항목에서도 여러 건의 주목할 만한 결함이 확인됐다. 대표적으로 클립보드 서비스인 'SemClipboardService'에서 발견된 권한 우회 취약점(SVE-2026-0916)은 별도 권한이 없는 로컬 앱이 클립보드에 저장된 민감한 정보를 무단으로 긁어갈 수 있는 문제였다. 이 밖에 하드웨어 보안 모듈인 '위버(Weaver)'에서도 로컬 공격을 통해 시스템이 잠기는 것을 막기 위한 접근 제어 강화 패치(SVE-2026-1829)가 적용됐다.</p>
+
+      <figure class="photo">
+        <img src="images/samsung-galaxy-august-2026-security-patch-1.webp" alt="삼성 갤럭시 스마트폰" loading="lazy">
+        <figcaption>Photo by Janitors · <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank">CC BY 2.0</a></figcaption>
+      </figure>
+
+      <p>삼성 기본 애플리케이션들에서도 보안 결함이 다수 발견돼 수정됐다. 삼성 연락처와 전화, 메시지, 갤럭시 테마, 앱락 등 여러 기본 앱에서 입력값 검증이 미흡했던 부분이 수정됐으며, 이를 통해 유심(SIM) 관련 서비스와 사용자 프로필 정보가 외부의 부정한 데이터 접근으로부터 한층 안전해질 것으로 기대된다. 아울러 동영상 코덱 라이브러리인 'libsavsvc.so' 내 VC1과 MPEG4 코덱에서 발견된 메모리 범위 초과 오류와 숫자 변환 오류도 이번 패치로 해결됐다.</p>
+
+      <p>삼성이 이번에 공개한 SVE 취약점 18건 중에는 높은 우선순위로 분류된 2건, 보통 우선순위인 14건, 그리고 우선순위가 아직 공개되지 않은 2건이 포함돼 있다. 삼성 측은 일부 SVE 세부 내용의 경우 악용 위험을 고려해 당장은 공개할 수 없다고 설명했다. 이번 패치는 안드로이드 14, 15, 16 버전을 탑재한 기기에 적용되며, 클립보드와 코덱, 셀룰러 라디오 등 시스템 전반의 영역을 포괄한다.</p>
+
+      <figure class="photo">
+        <img src="images/samsung-galaxy-august-2026-security-patch-2.webp" alt="스마트폰 보안 개념 이미지" loading="lazy">
+        <figcaption>Photo by ninjaonelive · <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank">CC BY 2.0</a></figcaption>
+      </figure>
+
+      <p>이번 패치가 구글의 월간 보안 공지보다 앞서 상세 내용까지 공개된 점도 눈길을 끈다. 통상 안드로이드 제조사들은 구글이 매달 초 공개하는 보안 공지에 맞춰 자사 기기용 패치를 순차적으로 배포해왔는데, 이번에는 삼성이 세부 내용을 먼저 상세히 공개하며 신속한 대응 의지를 보였다는 평가가 나온다. 보안 업계에서는 이런 선제적 공개가 이용자들의 조기 업데이트를 유도하는 효과가 있다고 설명한다.</p>
+
+      <p>보안 전문가들은 클립보드나 기본 앱처럼 이용자가 일상적으로 사용하는 기능에서 발견된 취약점일수록 실생활에 미치는 영향이 클 수 있다며, 갤럭시 기기 이용자들에게 가급적 빠른 시일 내에 소프트웨어 업데이트를 적용할 것을 권고했다. 특히 클립보드에는 비밀번호나 인증코드 등 민감한 정보가 잠깐씩 저장되는 경우가 많아, 관련 취약점이 악용될 경우 개인정보 유출로 이어질 위험이 크다는 지적이다. 패치는 기기 설정의 소프트웨어 업데이트 메뉴를 통해 순차적으로 배포되며, 구형 기종의 경우 지원 정책에 따라 업데이트 시기가 다소 늦어질 수 있다.</p>
+    </article>
+  </div>
+</body>
+</html>
