@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>北 라자루스 연계 조직, PHP 치명적 취약점 악용 공격 준비 정황 - 올딜 NEW'S</title>
+<style>
+  :root {
+    --bg: #f5f6f8; --card-bg: #ffffff; --text: #1a1a1a;
+    --text-muted: #6b7280; --accent: #2563eb; --border: #e5e7eb; --badge-bg: #eef2ff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #15171c; --card-bg: #1e2128; --text: #e8e8ea;
+      --text-muted: #9aa0aa; --accent: #6ea8ff; --border: #2c303a; --badge-bg: #23283a;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0 16px 64px; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", "Malgun Gothic", sans-serif; line-height: 1.75;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; }
+  nav {
+    max-width: 680px; margin: 0 auto; padding: 18px 0;
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  }
+  nav .brand { font-weight: 800; font-size: 1.1rem; color: var(--text); text-decoration: none; }
+  nav a.back { color: var(--text-muted); text-decoration: none; font-size: 0.88rem; }
+  nav a.back:hover { color: var(--accent); }
+  article {
+    background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px;
+    padding: 30px 28px;
+  }
+  .badge {
+    display: inline-block; background: var(--badge-bg); color: var(--accent);
+    font-size: 0.78rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; margin-bottom: 14px;
+  }
+  h1 { font-size: 1.4rem; margin: 0 0 10px; }
+  .meta { color: var(--text-muted); font-size: 0.82rem; margin: 0 0 20px; }
+  figure.photo { margin: 22px 0; }
+  figure.photo img { width: 100%; max-height: 360px; object-fit: cover; border-radius: 10px; display: block; background: var(--badge-bg); }
+  figure.photo figcaption { font-size: 0.7rem; color: var(--text-muted); margin-top: 5px; text-align: right; }
+  figure.photo figcaption a { color: var(--text-muted); }
+  p { margin: 0 0 15px; font-size: 0.97rem; }
+</style>
+</head>
+<body>
+  <nav>
+    <a class="brand" href="index.html">📰 올딜 NEW'S</a>
+    <a class="back" href="index.html">← 목록으로</a>
+  </nav>
+
+  <div class="wrap">
+    <article>
+      <span class="badge">💻 IT/과학</span>
+      <h1>北 라자루스 연계 조직, PHP 치명적 취약점 악용 공격 준비 정황</h1>
+      <p class="meta">2026년 10월 24일 (토)</p>
+
+      <p>싱가포르 사이버보안 기업 사이퍼마(CYFIRMA)가 한국어를 사용하는 조직원들이 PHP 보안 취약점을 악용해 대규모 사이버 공격을 준비하는 정황을 포착했다고 밝혔다. 이들은 익명성이 보장되는 폐쇄형 네트워크 'I2P'에서 공격 대상과 실행 계획을 구체적으로 논의한 것으로 파악됐다.</p>
+
+      <p>문제가 된 취약점은 최근 발견된 'PHP2Shell'(CVE-2026-109618, CVE-2026-109619)이다. 공격자가 별도의 로그인이나 인증 절차 없이 조작된 웹 요청만으로 서버에서 원격 명령을 실행할 수 있게 하는 결함으로, 공통취약점평가시스템(CVSS) 점수 10점 만점에 9.2점을 받아 '치명적' 등급으로 분류됐다.</p>
+
+      <figure class="photo">
+        <img src="images/lazarus-php2shell-attack-prep-oct24-1.webp" alt="사이버보안 침해 자료사진" loading="lazy">
+        <figcaption>Photo by Visual Content · <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank">CC BY 2.0</a></figcaption>
+      </figure>
+
+      <p>CYFIRMA에 따르면 공격 계획상 1순위 표적은 정부기관과 은행 등 금융기관이다. 이 밖에 제조업, 물류·해운업, 공항·항공 분야, 온라인 거래 플랫폼, 무역회사, 건설사 등도 공격 대상 목록에 포함된 것으로 전해졌다. PHP는 전 세계 수많은 웹사이트의 서버 측 로직을 구동하는 데 쓰이는 프로그래밍 언어여서, 취약점이 실제로 악용될 경우 파급력이 상당할 것으로 우려된다.</p>
+
+      <p>CYFIRMA는 이번 공격 준비 활동에 'June 2026 Minjun'이라는 이름을 붙이고, 관련 세력이 북한 해킹조직 라자루스 그룹과 연계됐을 가능성을 제기했다. 다만 북한과의 연관성에 대한 자체 분석 신뢰도는 '중간' 수준이라고 밝혀, 단정적인 귀속 판단은 유보했다.</p>
+
+      <figure class="photo">
+        <img src="images/lazarus-php2shell-attack-prep-oct24-2.webp" alt="서버실 자료사진" loading="lazy">
+        <figcaption>Photo by bugeaters · <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank">CC BY 2.0</a></figcaption>
+      </figure>
+
+      <p>라자루스 그룹은 그동안 전 세계 금융기관과 암호화폐 거래소 등을 겨냥한 해킹 공격의 배후로 지목돼 온 조직이다. 이번처럼 특정 취약점을 겨냥한 사전 정찰과 표적 목록 작성 단계가 외부에 포착된 것은, 실제 공격이 임박했을 가능성을 보여주는 신호로 받아들여진다.</p>
+
+      <p>보안 전문가들은 PHP를 사용하는 웹서버 운영 기관들에 긴급 패치 적용과 접근 통제 강화를 권고하고 있다. 특히 1순위 표적으로 지목된 정부기관과 금융권은 관련 시스템 점검을 서두를 필요가 있다는 지적이 나온다.</p>
+
+      <p>국내 보안 당국도 해당 취약점과 관련 동향을 주시하고 있는 것으로 알려졌다. 유사한 취약점을 이용한 공격은 패치가 배포된 이후에도 업데이트가 늦은 시스템을 노리는 경우가 많아, 전방위적인 보안 점검이 필요하다는 목소리가 커지고 있다.</p>
+    </article>
+  </div>
+</body>
+</html>
